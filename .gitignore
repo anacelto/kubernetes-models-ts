@@ -2,7 +2,7 @@ node_modules/
 /.idea/
 *.tsbuildinfo
 dist/
-gen/
+# gen/
 *.log
 /.vscode/
 
