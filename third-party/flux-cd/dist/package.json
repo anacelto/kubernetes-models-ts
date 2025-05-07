@@ -1,0 +1,229 @@
+{
+  "name": "@kubernetes-models/flux-cd",
+  "version": "2.3.2",
+  "description": "Flux CD models",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/flux-cd",
+  "author": "Tommy Chen <tommy351@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "flux",
+    "flux-cd"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "vitest": "^0.29.8"
+  },
+  "crd-generate": {
+    "input": [
+      "https://github.com/fluxcd/source-controller/releases/download/v1.2.4/source-controller.crds.yaml",
+      "https://github.com/fluxcd/kustomize-controller/releases/download/v1.2.2/kustomize-controller.crds.yaml",
+      "https://github.com/fluxcd/helm-controller/releases/download/v0.37.4/helm-controller.crds.yaml",
+      "https://github.com/fluxcd/notification-controller/releases/download/v1.2.4/notification-controller.crds.yaml",
+      "https://github.com/fluxcd/image-reflector-controller/releases/download/v0.31.2/image-reflector-controller.crds.yaml",
+      "https://github.com/fluxcd/image-automation-controller/releases/download/v0.37.1/image-automation-controller.crds.yaml"
+    ],
+    "output": "./gen"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./helm.toolkit.fluxcd.io": {
+      "types": "./helm.toolkit.fluxcd.io/index.d.ts",
+      "import": "./helm.toolkit.fluxcd.io/index.mjs",
+      "require": "./helm.toolkit.fluxcd.io/index.js"
+    },
+    "./helm.toolkit.fluxcd.io/v2beta1": {
+      "types": "./helm.toolkit.fluxcd.io/v2beta1/index.d.ts",
+      "import": "./helm.toolkit.fluxcd.io/v2beta1/index.mjs",
+      "require": "./helm.toolkit.fluxcd.io/v2beta1/index.js"
+    },
+    "./helm.toolkit.fluxcd.io/v2beta1/*": {
+      "types": "./helm.toolkit.fluxcd.io/v2beta1/*.d.ts",
+      "import": "./helm.toolkit.fluxcd.io/v2beta1/*.mjs",
+      "require": "./helm.toolkit.fluxcd.io/v2beta1/*.js"
+    },
+    "./helm.toolkit.fluxcd.io/v2beta2": {
+      "types": "./helm.toolkit.fluxcd.io/v2beta2/index.d.ts",
+      "import": "./helm.toolkit.fluxcd.io/v2beta2/index.mjs",
+      "require": "./helm.toolkit.fluxcd.io/v2beta2/index.js"
+    },
+    "./helm.toolkit.fluxcd.io/v2beta2/*": {
+      "types": "./helm.toolkit.fluxcd.io/v2beta2/*.d.ts",
+      "import": "./helm.toolkit.fluxcd.io/v2beta2/*.mjs",
+      "require": "./helm.toolkit.fluxcd.io/v2beta2/*.js"
+    },
+    "./image.toolkit.fluxcd.io": {
+      "types": "./image.toolkit.fluxcd.io/index.d.ts",
+      "import": "./image.toolkit.fluxcd.io/index.mjs",
+      "require": "./image.toolkit.fluxcd.io/index.js"
+    },
+    "./image.toolkit.fluxcd.io/v1beta1": {
+      "types": "./image.toolkit.fluxcd.io/v1beta1/index.d.ts",
+      "import": "./image.toolkit.fluxcd.io/v1beta1/index.mjs",
+      "require": "./image.toolkit.fluxcd.io/v1beta1/index.js"
+    },
+    "./image.toolkit.fluxcd.io/v1beta1/*": {
+      "types": "./image.toolkit.fluxcd.io/v1beta1/*.d.ts",
+      "import": "./image.toolkit.fluxcd.io/v1beta1/*.mjs",
+      "require": "./image.toolkit.fluxcd.io/v1beta1/*.js"
+    },
+    "./image.toolkit.fluxcd.io/v1beta2": {
+      "types": "./image.toolkit.fluxcd.io/v1beta2/index.d.ts",
+      "import": "./image.toolkit.fluxcd.io/v1beta2/index.mjs",
+      "require": "./image.toolkit.fluxcd.io/v1beta2/index.js"
+    },
+    "./image.toolkit.fluxcd.io/v1beta2/*": {
+      "types": "./image.toolkit.fluxcd.io/v1beta2/*.d.ts",
+      "import": "./image.toolkit.fluxcd.io/v1beta2/*.mjs",
+      "require": "./image.toolkit.fluxcd.io/v1beta2/*.js"
+    },
+    "./kustomize.toolkit.fluxcd.io": {
+      "types": "./kustomize.toolkit.fluxcd.io/index.d.ts",
+      "import": "./kustomize.toolkit.fluxcd.io/index.mjs",
+      "require": "./kustomize.toolkit.fluxcd.io/index.js"
+    },
+    "./kustomize.toolkit.fluxcd.io/v1": {
+      "types": "./kustomize.toolkit.fluxcd.io/v1/index.d.ts",
+      "import": "./kustomize.toolkit.fluxcd.io/v1/index.mjs",
+      "require": "./kustomize.toolkit.fluxcd.io/v1/index.js"
+    },
+    "./kustomize.toolkit.fluxcd.io/v1/*": {
+      "types": "./kustomize.toolkit.fluxcd.io/v1/*.d.ts",
+      "import": "./kustomize.toolkit.fluxcd.io/v1/*.mjs",
+      "require": "./kustomize.toolkit.fluxcd.io/v1/*.js"
+    },
+    "./kustomize.toolkit.fluxcd.io/v1beta1": {
+      "types": "./kustomize.toolkit.fluxcd.io/v1beta1/index.d.ts",
+      "import": "./kustomize.toolkit.fluxcd.io/v1beta1/index.mjs",
+      "require": "./kustomize.toolkit.fluxcd.io/v1beta1/index.js"
+    },
+    "./kustomize.toolkit.fluxcd.io/v1beta1/*": {
+      "types": "./kustomize.toolkit.fluxcd.io/v1beta1/*.d.ts",
+      "import": "./kustomize.toolkit.fluxcd.io/v1beta1/*.mjs",
+      "require": "./kustomize.toolkit.fluxcd.io/v1beta1/*.js"
+    },
+    "./kustomize.toolkit.fluxcd.io/v1beta2": {
+      "types": "./kustomize.toolkit.fluxcd.io/v1beta2/index.d.ts",
+      "import": "./kustomize.toolkit.fluxcd.io/v1beta2/index.mjs",
+      "require": "./kustomize.toolkit.fluxcd.io/v1beta2/index.js"
+    },
+    "./kustomize.toolkit.fluxcd.io/v1beta2/*": {
+      "types": "./kustomize.toolkit.fluxcd.io/v1beta2/*.d.ts",
+      "import": "./kustomize.toolkit.fluxcd.io/v1beta2/*.mjs",
+      "require": "./kustomize.toolkit.fluxcd.io/v1beta2/*.js"
+    },
+    "./notification.toolkit.fluxcd.io": {
+      "types": "./notification.toolkit.fluxcd.io/index.d.ts",
+      "import": "./notification.toolkit.fluxcd.io/index.mjs",
+      "require": "./notification.toolkit.fluxcd.io/index.js"
+    },
+    "./notification.toolkit.fluxcd.io/v1": {
+      "types": "./notification.toolkit.fluxcd.io/v1/index.d.ts",
+      "import": "./notification.toolkit.fluxcd.io/v1/index.mjs",
+      "require": "./notification.toolkit.fluxcd.io/v1/index.js"
+    },
+    "./notification.toolkit.fluxcd.io/v1/*": {
+      "types": "./notification.toolkit.fluxcd.io/v1/*.d.ts",
+      "import": "./notification.toolkit.fluxcd.io/v1/*.mjs",
+      "require": "./notification.toolkit.fluxcd.io/v1/*.js"
+    },
+    "./notification.toolkit.fluxcd.io/v1beta1": {
+      "types": "./notification.toolkit.fluxcd.io/v1beta1/index.d.ts",
+      "import": "./notification.toolkit.fluxcd.io/v1beta1/index.mjs",
+      "require": "./notification.toolkit.fluxcd.io/v1beta1/index.js"
+    },
+    "./notification.toolkit.fluxcd.io/v1beta1/*": {
+      "types": "./notification.toolkit.fluxcd.io/v1beta1/*.d.ts",
+      "import": "./notification.toolkit.fluxcd.io/v1beta1/*.mjs",
+      "require": "./notification.toolkit.fluxcd.io/v1beta1/*.js"
+    },
+    "./notification.toolkit.fluxcd.io/v1beta2": {
+      "types": "./notification.toolkit.fluxcd.io/v1beta2/index.d.ts",
+      "import": "./notification.toolkit.fluxcd.io/v1beta2/index.mjs",
+      "require": "./notification.toolkit.fluxcd.io/v1beta2/index.js"
+    },
+    "./notification.toolkit.fluxcd.io/v1beta2/*": {
+      "types": "./notification.toolkit.fluxcd.io/v1beta2/*.d.ts",
+      "import": "./notification.toolkit.fluxcd.io/v1beta2/*.mjs",
+      "require": "./notification.toolkit.fluxcd.io/v1beta2/*.js"
+    },
+    "./notification.toolkit.fluxcd.io/v1beta3": {
+      "types": "./notification.toolkit.fluxcd.io/v1beta3/index.d.ts",
+      "import": "./notification.toolkit.fluxcd.io/v1beta3/index.mjs",
+      "require": "./notification.toolkit.fluxcd.io/v1beta3/index.js"
+    },
+    "./notification.toolkit.fluxcd.io/v1beta3/*": {
+      "types": "./notification.toolkit.fluxcd.io/v1beta3/*.d.ts",
+      "import": "./notification.toolkit.fluxcd.io/v1beta3/*.mjs",
+      "require": "./notification.toolkit.fluxcd.io/v1beta3/*.js"
+    },
+    "./package.json": "./package.json",
+    "./source.toolkit.fluxcd.io": {
+      "types": "./source.toolkit.fluxcd.io/index.d.ts",
+      "import": "./source.toolkit.fluxcd.io/index.mjs",
+      "require": "./source.toolkit.fluxcd.io/index.js"
+    },
+    "./source.toolkit.fluxcd.io/v1": {
+      "types": "./source.toolkit.fluxcd.io/v1/index.d.ts",
+      "import": "./source.toolkit.fluxcd.io/v1/index.mjs",
+      "require": "./source.toolkit.fluxcd.io/v1/index.js"
+    },
+    "./source.toolkit.fluxcd.io/v1/*": {
+      "types": "./source.toolkit.fluxcd.io/v1/*.d.ts",
+      "import": "./source.toolkit.fluxcd.io/v1/*.mjs",
+      "require": "./source.toolkit.fluxcd.io/v1/*.js"
+    },
+    "./source.toolkit.fluxcd.io/v1beta1": {
+      "types": "./source.toolkit.fluxcd.io/v1beta1/index.d.ts",
+      "import": "./source.toolkit.fluxcd.io/v1beta1/index.mjs",
+      "require": "./source.toolkit.fluxcd.io/v1beta1/index.js"
+    },
+    "./source.toolkit.fluxcd.io/v1beta1/*": {
+      "types": "./source.toolkit.fluxcd.io/v1beta1/*.d.ts",
+      "import": "./source.toolkit.fluxcd.io/v1beta1/*.mjs",
+      "require": "./source.toolkit.fluxcd.io/v1beta1/*.js"
+    },
+    "./source.toolkit.fluxcd.io/v1beta2": {
+      "types": "./source.toolkit.fluxcd.io/v1beta2/index.d.ts",
+      "import": "./source.toolkit.fluxcd.io/v1beta2/index.mjs",
+      "require": "./source.toolkit.fluxcd.io/v1beta2/index.js"
+    },
+    "./source.toolkit.fluxcd.io/v1beta2/*": {
+      "types": "./source.toolkit.fluxcd.io/v1beta2/*.d.ts",
+      "import": "./source.toolkit.fluxcd.io/v1beta2/*.mjs",
+      "require": "./source.toolkit.fluxcd.io/v1beta2/*.js"
+    }
+  }
+}

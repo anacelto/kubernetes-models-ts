@@ -1,0 +1,1 @@
+export * as spiffeidSpiffeIo from "./spiffeid.spiffe.io/index";

@@ -1,0 +1,47 @@
+import { IObjectMeta } from "@kubernetes-models/apimachinery/apis/meta/v1/ObjectMeta";
+import { Model, ModelData } from "@kubernetes-models/base";
+export interface IWorkloadEntry {
+    /**
+     * Configuration affecting VMs onboarded into the mesh. See more details at: https://istio.io/docs/reference/config/networking/workload-entry.html
+     */
+    "spec"?: {
+        "address"?: string;
+        /**
+         * One or more labels associated with the endpoint.
+         */
+        "labels"?: {
+            [key: string]: string;
+        };
+        /**
+         * The locality associated with the endpoint.
+         */
+        "locality"?: string;
+        "network"?: string;
+        /**
+         * Set of ports associated with the endpoint.
+         */
+        "ports"?: {
+            [key: string]: number;
+        };
+        "serviceAccount"?: string;
+        /**
+         * The load balancing weight associated with the endpoint.
+         */
+        "weight"?: number;
+    };
+    "status"?: {};
+    "apiVersion": "networking.istio.io/v1beta1";
+    "kind": "WorkloadEntry";
+    "metadata"?: IObjectMeta;
+}
+export declare class WorkloadEntry extends Model<IWorkloadEntry> implements IWorkloadEntry {
+    "spec"?: IWorkloadEntry["spec"];
+    "status"?: IWorkloadEntry["status"];
+    "apiVersion": IWorkloadEntry["apiVersion"];
+    "kind": IWorkloadEntry["kind"];
+    "metadata"?: IWorkloadEntry["metadata"];
+    static apiVersion: IWorkloadEntry["apiVersion"];
+    static kind: IWorkloadEntry["kind"];
+    static is: import("@kubernetes-models/base").TypeMetaGuard<IWorkloadEntry>;
+    constructor(data?: ModelData<IWorkloadEntry>);
+}

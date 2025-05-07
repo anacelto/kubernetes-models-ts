@@ -1,0 +1,1905 @@
+{
+  "name": "@kubernetes-models/gke",
+  "version": "4.6.0",
+  "description": "Kubernetes GKE models",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/gke",
+  "author": "Rueian <rueiancsie@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack",
+    "dump-crd": "ts-node scripts/dump-crd.ts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "gke",
+    "google-cloud"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "@types/fs-extra": "^9.0.13",
+    "@types/node": "^18.7.23",
+    "execa": "^5.1.1",
+    "fs-extra": "^10.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4",
+    "vitest": "^0.29.8",
+    "yaml": "^2.2.2"
+  },
+  "crd-generate": {
+    "input": [
+      "./crd/backendconfigs.yaml",
+      "./crd/clusterimportconfigs.yaml",
+      "./crd/computeclasses.yaml",
+      "./crd/entitlements.yaml",
+      "./crd/frontendconfigs.yaml",
+      "./crd/managedcertificates.yaml",
+      "./crd/memberships.yaml",
+      "./crd/multidimpodautoscalers.yaml",
+      "./crd/networkloggings.yaml",
+      "./crd/podmonitors.yaml",
+      "./crd/redirectservices.yaml",
+      "./crd/serviceattachments.yaml",
+      "./crd/serviceexports.yaml",
+      "./crd/serviceimportconfigs.yaml",
+      "./crd/serviceimports.yaml",
+      "./crd/servicenetworkendpointgroups.yaml",
+      "./crd/updateinfos.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/k8s-config-connector/v1.113.0/install-bundles/install-bundle-autopilot-gcp-identity/crds.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/k8s-config-connector/v1.113.0/install-bundles/install-bundle-autopilot-namespaced/crds.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/k8s-config-connector/v1.113.0/install-bundles/install-bundle-autopilot-workload-identity/crds.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/k8s-config-connector/v1.113.0/install-bundles/install-bundle-gcp-identity/crds.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/k8s-config-connector/v1.113.0/install-bundles/install-bundle-namespaced/crds.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/k8s-config-connector/v1.113.0/install-bundles/install-bundle-workload-identity/crds.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-networking-recipes/e0c4725bc03a17f7ed7e9690406387de5287ea2b/gateway-api/config/mesh/crd/stable/tdgrpcroute.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-networking-recipes/e0c4725bc03a17f7ed7e9690406387de5287ea2b/gateway-api/config/mesh/crd/stable/tdmesh.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-gateway-api/v1.4.0/config/crd/networking.gke.io_gcpsessionaffinityfilters.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-gateway-api/v1.4.0/config/crd/networking.gke.io_gcpsessionaffinitypolicies.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-gateway-api/v1.4.0/config/crd/networking.gke.io_gcpbackendpolicies.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-gateway-api/v1.4.0/config/crd/networking.gke.io_gcpgatewaypolicies.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-gateway-api/v1.4.0/config/crd/networking.gke.io_healthcheckpolicies.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-gateway-api/v1.4.0/config/crd/networking.gke.io_gcptrafficdistributionpolicies.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-networking-recipes/e0c4725bc03a17f7ed7e9690406387de5287ea2b/gateway-api/config/servicepolicies/crd/standard/lbpolicy.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-networking-recipes/e0c4725bc03a17f7ed7e9690406387de5287ea2b/gateway-api/config/servicepolicies/crd/experimental/cdnpolicy.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-networking-recipes/e0c4725bc03a17f7ed7e9690406387de5287ea2b/gateway-api/config/servicepolicies/crd/experimental/grpcrouteretrypolicy.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-networking-recipes/e0c4725bc03a17f7ed7e9690406387de5287ea2b/gateway-api/config/servicepolicies/crd/experimental/httprouteretrypolicy.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-networking-recipes/e0c4725bc03a17f7ed7e9690406387de5287ea2b/gateway-api/config/servicepolicies/crd/experimental/iappolicy.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-networking-recipes/e0c4725bc03a17f7ed7e9690406387de5287ea2b/gateway-api/config/servicepolicies/crd/experimental/lbpolicy.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-networking-recipes/e0c4725bc03a17f7ed7e9690406387de5287ea2b/gateway-api/config/servicepolicies/crd/experimental/lbsecuritypolicy.yaml",
+      "https://raw.githubusercontent.com/GoogleCloudPlatform/gke-networking-recipes/e0c4725bc03a17f7ed7e9690406387de5287ea2b/gateway-api/config/servicepolicies/crd/experimental/outlierdetectionpolicy.yaml"
+    ],
+    "output": "./gen"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./accesscontextmanager.cnrm.cloud.google.com": {
+      "types": "./accesscontextmanager.cnrm.cloud.google.com/index.d.ts",
+      "import": "./accesscontextmanager.cnrm.cloud.google.com/index.mjs",
+      "require": "./accesscontextmanager.cnrm.cloud.google.com/index.js"
+    },
+    "./accesscontextmanager.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./accesscontextmanager.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./accesscontextmanager.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./accesscontextmanager.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./accesscontextmanager.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./accesscontextmanager.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./accesscontextmanager.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./accesscontextmanager.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./accesscontextmanager.cnrm.cloud.google.com/v1beta1": {
+      "types": "./accesscontextmanager.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./accesscontextmanager.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./accesscontextmanager.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./accesscontextmanager.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./accesscontextmanager.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./accesscontextmanager.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./accesscontextmanager.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./alloydb.cnrm.cloud.google.com": {
+      "types": "./alloydb.cnrm.cloud.google.com/index.d.ts",
+      "import": "./alloydb.cnrm.cloud.google.com/index.mjs",
+      "require": "./alloydb.cnrm.cloud.google.com/index.js"
+    },
+    "./alloydb.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./alloydb.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./alloydb.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./alloydb.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./alloydb.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./alloydb.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./alloydb.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./alloydb.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./alloydb.cnrm.cloud.google.com/v1beta1": {
+      "types": "./alloydb.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./alloydb.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./alloydb.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./alloydb.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./alloydb.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./alloydb.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./alloydb.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./anthos.gke.io": {
+      "types": "./anthos.gke.io/index.d.ts",
+      "import": "./anthos.gke.io/index.mjs",
+      "require": "./anthos.gke.io/index.js"
+    },
+    "./anthos.gke.io/v1alpha1": {
+      "types": "./anthos.gke.io/v1alpha1/index.d.ts",
+      "import": "./anthos.gke.io/v1alpha1/index.mjs",
+      "require": "./anthos.gke.io/v1alpha1/index.js"
+    },
+    "./anthos.gke.io/v1alpha1/*": {
+      "types": "./anthos.gke.io/v1alpha1/*.d.ts",
+      "import": "./anthos.gke.io/v1alpha1/*.mjs",
+      "require": "./anthos.gke.io/v1alpha1/*.js"
+    },
+    "./apigateway.cnrm.cloud.google.com": {
+      "types": "./apigateway.cnrm.cloud.google.com/index.d.ts",
+      "import": "./apigateway.cnrm.cloud.google.com/index.mjs",
+      "require": "./apigateway.cnrm.cloud.google.com/index.js"
+    },
+    "./apigateway.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./apigateway.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./apigateway.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./apigateway.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./apigateway.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./apigateway.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./apigateway.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./apigateway.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./apigee.cnrm.cloud.google.com": {
+      "types": "./apigee.cnrm.cloud.google.com/index.d.ts",
+      "import": "./apigee.cnrm.cloud.google.com/index.mjs",
+      "require": "./apigee.cnrm.cloud.google.com/index.js"
+    },
+    "./apigee.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./apigee.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./apigee.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./apigee.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./apigee.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./apigee.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./apigee.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./apigee.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./apigee.cnrm.cloud.google.com/v1beta1": {
+      "types": "./apigee.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./apigee.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./apigee.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./apigee.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./apigee.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./apigee.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./apigee.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./appengine.cnrm.cloud.google.com": {
+      "types": "./appengine.cnrm.cloud.google.com/index.d.ts",
+      "import": "./appengine.cnrm.cloud.google.com/index.mjs",
+      "require": "./appengine.cnrm.cloud.google.com/index.js"
+    },
+    "./appengine.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./appengine.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./appengine.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./appengine.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./appengine.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./appengine.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./appengine.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./appengine.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./artifactregistry.cnrm.cloud.google.com": {
+      "types": "./artifactregistry.cnrm.cloud.google.com/index.d.ts",
+      "import": "./artifactregistry.cnrm.cloud.google.com/index.mjs",
+      "require": "./artifactregistry.cnrm.cloud.google.com/index.js"
+    },
+    "./artifactregistry.cnrm.cloud.google.com/v1beta1": {
+      "types": "./artifactregistry.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./artifactregistry.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./artifactregistry.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./artifactregistry.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./artifactregistry.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./artifactregistry.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./artifactregistry.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./autoscaling.gke.io": {
+      "types": "./autoscaling.gke.io/index.d.ts",
+      "import": "./autoscaling.gke.io/index.mjs",
+      "require": "./autoscaling.gke.io/index.js"
+    },
+    "./autoscaling.gke.io/v1beta1": {
+      "types": "./autoscaling.gke.io/v1beta1/index.d.ts",
+      "import": "./autoscaling.gke.io/v1beta1/index.mjs",
+      "require": "./autoscaling.gke.io/v1beta1/index.js"
+    },
+    "./autoscaling.gke.io/v1beta1/*": {
+      "types": "./autoscaling.gke.io/v1beta1/*.d.ts",
+      "import": "./autoscaling.gke.io/v1beta1/*.mjs",
+      "require": "./autoscaling.gke.io/v1beta1/*.js"
+    },
+    "./beyondcorp.cnrm.cloud.google.com": {
+      "types": "./beyondcorp.cnrm.cloud.google.com/index.d.ts",
+      "import": "./beyondcorp.cnrm.cloud.google.com/index.mjs",
+      "require": "./beyondcorp.cnrm.cloud.google.com/index.js"
+    },
+    "./beyondcorp.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./beyondcorp.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./beyondcorp.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./beyondcorp.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./beyondcorp.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./beyondcorp.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./beyondcorp.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./beyondcorp.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./bigquery.cnrm.cloud.google.com": {
+      "types": "./bigquery.cnrm.cloud.google.com/index.d.ts",
+      "import": "./bigquery.cnrm.cloud.google.com/index.mjs",
+      "require": "./bigquery.cnrm.cloud.google.com/index.js"
+    },
+    "./bigquery.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./bigquery.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./bigquery.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./bigquery.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./bigquery.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./bigquery.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./bigquery.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./bigquery.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./bigquery.cnrm.cloud.google.com/v1beta1": {
+      "types": "./bigquery.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./bigquery.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./bigquery.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./bigquery.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./bigquery.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./bigquery.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./bigquery.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./bigqueryanalyticshub.cnrm.cloud.google.com": {
+      "types": "./bigqueryanalyticshub.cnrm.cloud.google.com/index.d.ts",
+      "import": "./bigqueryanalyticshub.cnrm.cloud.google.com/index.mjs",
+      "require": "./bigqueryanalyticshub.cnrm.cloud.google.com/index.js"
+    },
+    "./bigqueryanalyticshub.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./bigqueryanalyticshub.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./bigqueryanalyticshub.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./bigqueryanalyticshub.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./bigqueryanalyticshub.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./bigqueryanalyticshub.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./bigqueryanalyticshub.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./bigqueryanalyticshub.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./bigqueryconnection.cnrm.cloud.google.com": {
+      "types": "./bigqueryconnection.cnrm.cloud.google.com/index.d.ts",
+      "import": "./bigqueryconnection.cnrm.cloud.google.com/index.mjs",
+      "require": "./bigqueryconnection.cnrm.cloud.google.com/index.js"
+    },
+    "./bigqueryconnection.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./bigqueryconnection.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./bigqueryconnection.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./bigqueryconnection.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./bigqueryconnection.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./bigqueryconnection.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./bigqueryconnection.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./bigqueryconnection.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./bigquerydatapolicy.cnrm.cloud.google.com": {
+      "types": "./bigquerydatapolicy.cnrm.cloud.google.com/index.d.ts",
+      "import": "./bigquerydatapolicy.cnrm.cloud.google.com/index.mjs",
+      "require": "./bigquerydatapolicy.cnrm.cloud.google.com/index.js"
+    },
+    "./bigquerydatapolicy.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./bigquerydatapolicy.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./bigquerydatapolicy.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./bigquerydatapolicy.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./bigquerydatapolicy.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./bigquerydatapolicy.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./bigquerydatapolicy.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./bigquerydatapolicy.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./bigquerydatatransfer.cnrm.cloud.google.com": {
+      "types": "./bigquerydatatransfer.cnrm.cloud.google.com/index.d.ts",
+      "import": "./bigquerydatatransfer.cnrm.cloud.google.com/index.mjs",
+      "require": "./bigquerydatatransfer.cnrm.cloud.google.com/index.js"
+    },
+    "./bigquerydatatransfer.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./bigquerydatatransfer.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./bigquerydatatransfer.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./bigquerydatatransfer.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./bigquerydatatransfer.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./bigquerydatatransfer.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./bigquerydatatransfer.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./bigquerydatatransfer.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./bigqueryreservation.cnrm.cloud.google.com": {
+      "types": "./bigqueryreservation.cnrm.cloud.google.com/index.d.ts",
+      "import": "./bigqueryreservation.cnrm.cloud.google.com/index.mjs",
+      "require": "./bigqueryreservation.cnrm.cloud.google.com/index.js"
+    },
+    "./bigqueryreservation.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./bigqueryreservation.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./bigqueryreservation.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./bigqueryreservation.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./bigqueryreservation.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./bigqueryreservation.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./bigqueryreservation.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./bigqueryreservation.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./bigtable.cnrm.cloud.google.com": {
+      "types": "./bigtable.cnrm.cloud.google.com/index.d.ts",
+      "import": "./bigtable.cnrm.cloud.google.com/index.mjs",
+      "require": "./bigtable.cnrm.cloud.google.com/index.js"
+    },
+    "./bigtable.cnrm.cloud.google.com/v1beta1": {
+      "types": "./bigtable.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./bigtable.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./bigtable.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./bigtable.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./bigtable.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./bigtable.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./bigtable.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./billingbudgets.cnrm.cloud.google.com": {
+      "types": "./billingbudgets.cnrm.cloud.google.com/index.d.ts",
+      "import": "./billingbudgets.cnrm.cloud.google.com/index.mjs",
+      "require": "./billingbudgets.cnrm.cloud.google.com/index.js"
+    },
+    "./billingbudgets.cnrm.cloud.google.com/v1beta1": {
+      "types": "./billingbudgets.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./billingbudgets.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./billingbudgets.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./billingbudgets.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./billingbudgets.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./billingbudgets.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./billingbudgets.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./binaryauthorization.cnrm.cloud.google.com": {
+      "types": "./binaryauthorization.cnrm.cloud.google.com/index.d.ts",
+      "import": "./binaryauthorization.cnrm.cloud.google.com/index.mjs",
+      "require": "./binaryauthorization.cnrm.cloud.google.com/index.js"
+    },
+    "./binaryauthorization.cnrm.cloud.google.com/v1beta1": {
+      "types": "./binaryauthorization.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./binaryauthorization.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./binaryauthorization.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./binaryauthorization.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./binaryauthorization.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./binaryauthorization.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./binaryauthorization.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./certificatemanager.cnrm.cloud.google.com": {
+      "types": "./certificatemanager.cnrm.cloud.google.com/index.d.ts",
+      "import": "./certificatemanager.cnrm.cloud.google.com/index.mjs",
+      "require": "./certificatemanager.cnrm.cloud.google.com/index.js"
+    },
+    "./certificatemanager.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./certificatemanager.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./certificatemanager.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./certificatemanager.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./certificatemanager.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./certificatemanager.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./certificatemanager.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./certificatemanager.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./certificatemanager.cnrm.cloud.google.com/v1beta1": {
+      "types": "./certificatemanager.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./certificatemanager.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./certificatemanager.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./certificatemanager.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./certificatemanager.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./certificatemanager.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./certificatemanager.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./cloud.google.com": {
+      "types": "./cloud.google.com/index.d.ts",
+      "import": "./cloud.google.com/index.mjs",
+      "require": "./cloud.google.com/index.js"
+    },
+    "./cloud.google.com/v1": {
+      "types": "./cloud.google.com/v1/index.d.ts",
+      "import": "./cloud.google.com/v1/index.mjs",
+      "require": "./cloud.google.com/v1/index.js"
+    },
+    "./cloud.google.com/v1/*": {
+      "types": "./cloud.google.com/v1/*.d.ts",
+      "import": "./cloud.google.com/v1/*.mjs",
+      "require": "./cloud.google.com/v1/*.js"
+    },
+    "./cloud.google.com/v1beta1": {
+      "types": "./cloud.google.com/v1beta1/index.d.ts",
+      "import": "./cloud.google.com/v1beta1/index.mjs",
+      "require": "./cloud.google.com/v1beta1/index.js"
+    },
+    "./cloud.google.com/v1beta1/*": {
+      "types": "./cloud.google.com/v1beta1/*.d.ts",
+      "import": "./cloud.google.com/v1beta1/*.mjs",
+      "require": "./cloud.google.com/v1beta1/*.js"
+    },
+    "./cloudasset.cnrm.cloud.google.com": {
+      "types": "./cloudasset.cnrm.cloud.google.com/index.d.ts",
+      "import": "./cloudasset.cnrm.cloud.google.com/index.mjs",
+      "require": "./cloudasset.cnrm.cloud.google.com/index.js"
+    },
+    "./cloudasset.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./cloudasset.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./cloudasset.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./cloudasset.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./cloudasset.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./cloudasset.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./cloudasset.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./cloudasset.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./cloudbuild.cnrm.cloud.google.com": {
+      "types": "./cloudbuild.cnrm.cloud.google.com/index.d.ts",
+      "import": "./cloudbuild.cnrm.cloud.google.com/index.mjs",
+      "require": "./cloudbuild.cnrm.cloud.google.com/index.js"
+    },
+    "./cloudbuild.cnrm.cloud.google.com/v1beta1": {
+      "types": "./cloudbuild.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./cloudbuild.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./cloudbuild.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./cloudbuild.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./cloudbuild.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./cloudbuild.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./cloudbuild.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./cloudfunctions.cnrm.cloud.google.com": {
+      "types": "./cloudfunctions.cnrm.cloud.google.com/index.d.ts",
+      "import": "./cloudfunctions.cnrm.cloud.google.com/index.mjs",
+      "require": "./cloudfunctions.cnrm.cloud.google.com/index.js"
+    },
+    "./cloudfunctions.cnrm.cloud.google.com/v1beta1": {
+      "types": "./cloudfunctions.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./cloudfunctions.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./cloudfunctions.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./cloudfunctions.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./cloudfunctions.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./cloudfunctions.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./cloudfunctions.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./cloudfunctions2.cnrm.cloud.google.com": {
+      "types": "./cloudfunctions2.cnrm.cloud.google.com/index.d.ts",
+      "import": "./cloudfunctions2.cnrm.cloud.google.com/index.mjs",
+      "require": "./cloudfunctions2.cnrm.cloud.google.com/index.js"
+    },
+    "./cloudfunctions2.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./cloudfunctions2.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./cloudfunctions2.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./cloudfunctions2.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./cloudfunctions2.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./cloudfunctions2.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./cloudfunctions2.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./cloudfunctions2.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./cloudidentity.cnrm.cloud.google.com": {
+      "types": "./cloudidentity.cnrm.cloud.google.com/index.d.ts",
+      "import": "./cloudidentity.cnrm.cloud.google.com/index.mjs",
+      "require": "./cloudidentity.cnrm.cloud.google.com/index.js"
+    },
+    "./cloudidentity.cnrm.cloud.google.com/v1beta1": {
+      "types": "./cloudidentity.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./cloudidentity.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./cloudidentity.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./cloudidentity.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./cloudidentity.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./cloudidentity.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./cloudidentity.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./cloudids.cnrm.cloud.google.com": {
+      "types": "./cloudids.cnrm.cloud.google.com/index.d.ts",
+      "import": "./cloudids.cnrm.cloud.google.com/index.mjs",
+      "require": "./cloudids.cnrm.cloud.google.com/index.js"
+    },
+    "./cloudids.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./cloudids.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./cloudids.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./cloudids.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./cloudids.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./cloudids.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./cloudids.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./cloudids.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./cloudiot.cnrm.cloud.google.com": {
+      "types": "./cloudiot.cnrm.cloud.google.com/index.d.ts",
+      "import": "./cloudiot.cnrm.cloud.google.com/index.mjs",
+      "require": "./cloudiot.cnrm.cloud.google.com/index.js"
+    },
+    "./cloudiot.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./cloudiot.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./cloudiot.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./cloudiot.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./cloudiot.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./cloudiot.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./cloudiot.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./cloudiot.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./cloudscheduler.cnrm.cloud.google.com": {
+      "types": "./cloudscheduler.cnrm.cloud.google.com/index.d.ts",
+      "import": "./cloudscheduler.cnrm.cloud.google.com/index.mjs",
+      "require": "./cloudscheduler.cnrm.cloud.google.com/index.js"
+    },
+    "./cloudscheduler.cnrm.cloud.google.com/v1beta1": {
+      "types": "./cloudscheduler.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./cloudscheduler.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./cloudscheduler.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./cloudscheduler.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./cloudscheduler.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./cloudscheduler.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./cloudscheduler.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./cloudtasks.cnrm.cloud.google.com": {
+      "types": "./cloudtasks.cnrm.cloud.google.com/index.d.ts",
+      "import": "./cloudtasks.cnrm.cloud.google.com/index.mjs",
+      "require": "./cloudtasks.cnrm.cloud.google.com/index.js"
+    },
+    "./cloudtasks.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./cloudtasks.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./cloudtasks.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./cloudtasks.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./cloudtasks.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./cloudtasks.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./cloudtasks.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./cloudtasks.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./compute.cnrm.cloud.google.com": {
+      "types": "./compute.cnrm.cloud.google.com/index.d.ts",
+      "import": "./compute.cnrm.cloud.google.com/index.mjs",
+      "require": "./compute.cnrm.cloud.google.com/index.js"
+    },
+    "./compute.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./compute.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./compute.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./compute.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./compute.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./compute.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./compute.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./compute.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./compute.cnrm.cloud.google.com/v1beta1": {
+      "types": "./compute.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./compute.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./compute.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./compute.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./compute.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./compute.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./compute.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./configcontroller.cnrm.cloud.google.com": {
+      "types": "./configcontroller.cnrm.cloud.google.com/index.d.ts",
+      "import": "./configcontroller.cnrm.cloud.google.com/index.mjs",
+      "require": "./configcontroller.cnrm.cloud.google.com/index.js"
+    },
+    "./configcontroller.cnrm.cloud.google.com/v1beta1": {
+      "types": "./configcontroller.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./configcontroller.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./configcontroller.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./configcontroller.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./configcontroller.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./configcontroller.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./configcontroller.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./container.cnrm.cloud.google.com": {
+      "types": "./container.cnrm.cloud.google.com/index.d.ts",
+      "import": "./container.cnrm.cloud.google.com/index.mjs",
+      "require": "./container.cnrm.cloud.google.com/index.js"
+    },
+    "./container.cnrm.cloud.google.com/v1beta1": {
+      "types": "./container.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./container.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./container.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./container.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./container.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./container.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./container.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./containeranalysis.cnrm.cloud.google.com": {
+      "types": "./containeranalysis.cnrm.cloud.google.com/index.d.ts",
+      "import": "./containeranalysis.cnrm.cloud.google.com/index.mjs",
+      "require": "./containeranalysis.cnrm.cloud.google.com/index.js"
+    },
+    "./containeranalysis.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./containeranalysis.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./containeranalysis.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./containeranalysis.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./containeranalysis.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./containeranalysis.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./containeranalysis.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./containeranalysis.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./containeranalysis.cnrm.cloud.google.com/v1beta1": {
+      "types": "./containeranalysis.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./containeranalysis.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./containeranalysis.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./containeranalysis.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./containeranalysis.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./containeranalysis.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./containeranalysis.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./containerattached.cnrm.cloud.google.com": {
+      "types": "./containerattached.cnrm.cloud.google.com/index.d.ts",
+      "import": "./containerattached.cnrm.cloud.google.com/index.mjs",
+      "require": "./containerattached.cnrm.cloud.google.com/index.js"
+    },
+    "./containerattached.cnrm.cloud.google.com/v1beta1": {
+      "types": "./containerattached.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./containerattached.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./containerattached.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./containerattached.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./containerattached.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./containerattached.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./containerattached.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./datacatalog.cnrm.cloud.google.com": {
+      "types": "./datacatalog.cnrm.cloud.google.com/index.d.ts",
+      "import": "./datacatalog.cnrm.cloud.google.com/index.mjs",
+      "require": "./datacatalog.cnrm.cloud.google.com/index.js"
+    },
+    "./datacatalog.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./datacatalog.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./datacatalog.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./datacatalog.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./datacatalog.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./datacatalog.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./datacatalog.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./datacatalog.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./datacatalog.cnrm.cloud.google.com/v1beta1": {
+      "types": "./datacatalog.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./datacatalog.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./datacatalog.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./datacatalog.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./datacatalog.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./datacatalog.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./datacatalog.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./dataflow.cnrm.cloud.google.com": {
+      "types": "./dataflow.cnrm.cloud.google.com/index.d.ts",
+      "import": "./dataflow.cnrm.cloud.google.com/index.mjs",
+      "require": "./dataflow.cnrm.cloud.google.com/index.js"
+    },
+    "./dataflow.cnrm.cloud.google.com/v1beta1": {
+      "types": "./dataflow.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./dataflow.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./dataflow.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./dataflow.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./dataflow.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./dataflow.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./dataflow.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./dataform.cnrm.cloud.google.com": {
+      "types": "./dataform.cnrm.cloud.google.com/index.d.ts",
+      "import": "./dataform.cnrm.cloud.google.com/index.mjs",
+      "require": "./dataform.cnrm.cloud.google.com/index.js"
+    },
+    "./dataform.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./dataform.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./dataform.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./dataform.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./dataform.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./dataform.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./dataform.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./dataform.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./datafusion.cnrm.cloud.google.com": {
+      "types": "./datafusion.cnrm.cloud.google.com/index.d.ts",
+      "import": "./datafusion.cnrm.cloud.google.com/index.mjs",
+      "require": "./datafusion.cnrm.cloud.google.com/index.js"
+    },
+    "./datafusion.cnrm.cloud.google.com/v1beta1": {
+      "types": "./datafusion.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./datafusion.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./datafusion.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./datafusion.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./datafusion.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./datafusion.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./datafusion.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./dataproc.cnrm.cloud.google.com": {
+      "types": "./dataproc.cnrm.cloud.google.com/index.d.ts",
+      "import": "./dataproc.cnrm.cloud.google.com/index.mjs",
+      "require": "./dataproc.cnrm.cloud.google.com/index.js"
+    },
+    "./dataproc.cnrm.cloud.google.com/v1beta1": {
+      "types": "./dataproc.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./dataproc.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./dataproc.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./dataproc.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./dataproc.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./dataproc.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./dataproc.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./datastore.cnrm.cloud.google.com": {
+      "types": "./datastore.cnrm.cloud.google.com/index.d.ts",
+      "import": "./datastore.cnrm.cloud.google.com/index.mjs",
+      "require": "./datastore.cnrm.cloud.google.com/index.js"
+    },
+    "./datastore.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./datastore.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./datastore.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./datastore.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./datastore.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./datastore.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./datastore.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./datastore.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./datastream.cnrm.cloud.google.com": {
+      "types": "./datastream.cnrm.cloud.google.com/index.d.ts",
+      "import": "./datastream.cnrm.cloud.google.com/index.mjs",
+      "require": "./datastream.cnrm.cloud.google.com/index.js"
+    },
+    "./datastream.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./datastream.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./datastream.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./datastream.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./datastream.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./datastream.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./datastream.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./datastream.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./deploymentmanager.cnrm.cloud.google.com": {
+      "types": "./deploymentmanager.cnrm.cloud.google.com/index.d.ts",
+      "import": "./deploymentmanager.cnrm.cloud.google.com/index.mjs",
+      "require": "./deploymentmanager.cnrm.cloud.google.com/index.js"
+    },
+    "./deploymentmanager.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./deploymentmanager.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./deploymentmanager.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./deploymentmanager.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./deploymentmanager.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./deploymentmanager.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./deploymentmanager.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./deploymentmanager.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./dialogflow.cnrm.cloud.google.com": {
+      "types": "./dialogflow.cnrm.cloud.google.com/index.d.ts",
+      "import": "./dialogflow.cnrm.cloud.google.com/index.mjs",
+      "require": "./dialogflow.cnrm.cloud.google.com/index.js"
+    },
+    "./dialogflow.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./dialogflow.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./dialogflow.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./dialogflow.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./dialogflow.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./dialogflow.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./dialogflow.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./dialogflow.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./dialogflowcx.cnrm.cloud.google.com": {
+      "types": "./dialogflowcx.cnrm.cloud.google.com/index.d.ts",
+      "import": "./dialogflowcx.cnrm.cloud.google.com/index.mjs",
+      "require": "./dialogflowcx.cnrm.cloud.google.com/index.js"
+    },
+    "./dialogflowcx.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./dialogflowcx.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./dialogflowcx.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./dialogflowcx.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./dialogflowcx.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./dialogflowcx.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./dialogflowcx.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./dialogflowcx.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./dlp.cnrm.cloud.google.com": {
+      "types": "./dlp.cnrm.cloud.google.com/index.d.ts",
+      "import": "./dlp.cnrm.cloud.google.com/index.mjs",
+      "require": "./dlp.cnrm.cloud.google.com/index.js"
+    },
+    "./dlp.cnrm.cloud.google.com/v1beta1": {
+      "types": "./dlp.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./dlp.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./dlp.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./dlp.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./dlp.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./dlp.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./dlp.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./dns.cnrm.cloud.google.com": {
+      "types": "./dns.cnrm.cloud.google.com/index.d.ts",
+      "import": "./dns.cnrm.cloud.google.com/index.mjs",
+      "require": "./dns.cnrm.cloud.google.com/index.js"
+    },
+    "./dns.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./dns.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./dns.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./dns.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./dns.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./dns.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./dns.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./dns.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./dns.cnrm.cloud.google.com/v1beta1": {
+      "types": "./dns.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./dns.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./dns.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./dns.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./dns.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./dns.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./dns.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./documentai.cnrm.cloud.google.com": {
+      "types": "./documentai.cnrm.cloud.google.com/index.d.ts",
+      "import": "./documentai.cnrm.cloud.google.com/index.mjs",
+      "require": "./documentai.cnrm.cloud.google.com/index.js"
+    },
+    "./documentai.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./documentai.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./documentai.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./documentai.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./documentai.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./documentai.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./documentai.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./documentai.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./edgecontainer.cnrm.cloud.google.com": {
+      "types": "./edgecontainer.cnrm.cloud.google.com/index.d.ts",
+      "import": "./edgecontainer.cnrm.cloud.google.com/index.mjs",
+      "require": "./edgecontainer.cnrm.cloud.google.com/index.js"
+    },
+    "./edgecontainer.cnrm.cloud.google.com/v1beta1": {
+      "types": "./edgecontainer.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./edgecontainer.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./edgecontainer.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./edgecontainer.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./edgecontainer.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./edgecontainer.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./edgecontainer.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./edgenetwork.cnrm.cloud.google.com": {
+      "types": "./edgenetwork.cnrm.cloud.google.com/index.d.ts",
+      "import": "./edgenetwork.cnrm.cloud.google.com/index.mjs",
+      "require": "./edgenetwork.cnrm.cloud.google.com/index.js"
+    },
+    "./edgenetwork.cnrm.cloud.google.com/v1beta1": {
+      "types": "./edgenetwork.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./edgenetwork.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./edgenetwork.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./edgenetwork.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./edgenetwork.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./edgenetwork.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./edgenetwork.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./essentialcontacts.cnrm.cloud.google.com": {
+      "types": "./essentialcontacts.cnrm.cloud.google.com/index.d.ts",
+      "import": "./essentialcontacts.cnrm.cloud.google.com/index.mjs",
+      "require": "./essentialcontacts.cnrm.cloud.google.com/index.js"
+    },
+    "./essentialcontacts.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./essentialcontacts.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./essentialcontacts.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./essentialcontacts.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./essentialcontacts.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./essentialcontacts.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./essentialcontacts.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./essentialcontacts.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./eventarc.cnrm.cloud.google.com": {
+      "types": "./eventarc.cnrm.cloud.google.com/index.d.ts",
+      "import": "./eventarc.cnrm.cloud.google.com/index.mjs",
+      "require": "./eventarc.cnrm.cloud.google.com/index.js"
+    },
+    "./eventarc.cnrm.cloud.google.com/v1beta1": {
+      "types": "./eventarc.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./eventarc.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./eventarc.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./eventarc.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./eventarc.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./eventarc.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./eventarc.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./filestore.cnrm.cloud.google.com": {
+      "types": "./filestore.cnrm.cloud.google.com/index.d.ts",
+      "import": "./filestore.cnrm.cloud.google.com/index.mjs",
+      "require": "./filestore.cnrm.cloud.google.com/index.js"
+    },
+    "./filestore.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./filestore.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./filestore.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./filestore.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./filestore.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./filestore.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./filestore.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./filestore.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./filestore.cnrm.cloud.google.com/v1beta1": {
+      "types": "./filestore.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./filestore.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./filestore.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./filestore.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./filestore.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./filestore.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./filestore.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./firebase.cnrm.cloud.google.com": {
+      "types": "./firebase.cnrm.cloud.google.com/index.d.ts",
+      "import": "./firebase.cnrm.cloud.google.com/index.mjs",
+      "require": "./firebase.cnrm.cloud.google.com/index.js"
+    },
+    "./firebase.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./firebase.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./firebase.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./firebase.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./firebase.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./firebase.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./firebase.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./firebase.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./firebasedatabase.cnrm.cloud.google.com": {
+      "types": "./firebasedatabase.cnrm.cloud.google.com/index.d.ts",
+      "import": "./firebasedatabase.cnrm.cloud.google.com/index.mjs",
+      "require": "./firebasedatabase.cnrm.cloud.google.com/index.js"
+    },
+    "./firebasedatabase.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./firebasedatabase.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./firebasedatabase.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./firebasedatabase.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./firebasedatabase.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./firebasedatabase.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./firebasedatabase.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./firebasedatabase.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./firebasehosting.cnrm.cloud.google.com": {
+      "types": "./firebasehosting.cnrm.cloud.google.com/index.d.ts",
+      "import": "./firebasehosting.cnrm.cloud.google.com/index.mjs",
+      "require": "./firebasehosting.cnrm.cloud.google.com/index.js"
+    },
+    "./firebasehosting.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./firebasehosting.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./firebasehosting.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./firebasehosting.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./firebasehosting.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./firebasehosting.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./firebasehosting.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./firebasehosting.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./firebasestorage.cnrm.cloud.google.com": {
+      "types": "./firebasestorage.cnrm.cloud.google.com/index.d.ts",
+      "import": "./firebasestorage.cnrm.cloud.google.com/index.mjs",
+      "require": "./firebasestorage.cnrm.cloud.google.com/index.js"
+    },
+    "./firebasestorage.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./firebasestorage.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./firebasestorage.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./firebasestorage.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./firebasestorage.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./firebasestorage.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./firebasestorage.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./firebasestorage.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./firestore.cnrm.cloud.google.com": {
+      "types": "./firestore.cnrm.cloud.google.com/index.d.ts",
+      "import": "./firestore.cnrm.cloud.google.com/index.mjs",
+      "require": "./firestore.cnrm.cloud.google.com/index.js"
+    },
+    "./firestore.cnrm.cloud.google.com/v1beta1": {
+      "types": "./firestore.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./firestore.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./firestore.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./firestore.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./firestore.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./firestore.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./firestore.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./gkebackup.cnrm.cloud.google.com": {
+      "types": "./gkebackup.cnrm.cloud.google.com/index.d.ts",
+      "import": "./gkebackup.cnrm.cloud.google.com/index.mjs",
+      "require": "./gkebackup.cnrm.cloud.google.com/index.js"
+    },
+    "./gkebackup.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./gkebackup.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./gkebackup.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./gkebackup.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./gkebackup.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./gkebackup.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./gkebackup.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./gkebackup.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./gkehub.cnrm.cloud.google.com": {
+      "types": "./gkehub.cnrm.cloud.google.com/index.d.ts",
+      "import": "./gkehub.cnrm.cloud.google.com/index.mjs",
+      "require": "./gkehub.cnrm.cloud.google.com/index.js"
+    },
+    "./gkehub.cnrm.cloud.google.com/v1beta1": {
+      "types": "./gkehub.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./gkehub.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./gkehub.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./gkehub.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./gkehub.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./gkehub.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./gkehub.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./healthcare.cnrm.cloud.google.com": {
+      "types": "./healthcare.cnrm.cloud.google.com/index.d.ts",
+      "import": "./healthcare.cnrm.cloud.google.com/index.mjs",
+      "require": "./healthcare.cnrm.cloud.google.com/index.js"
+    },
+    "./healthcare.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./healthcare.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./healthcare.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./healthcare.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./healthcare.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./healthcare.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./healthcare.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./healthcare.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./hub.gke.io": {
+      "types": "./hub.gke.io/index.d.ts",
+      "import": "./hub.gke.io/index.mjs",
+      "require": "./hub.gke.io/index.js"
+    },
+    "./hub.gke.io/v1": {
+      "types": "./hub.gke.io/v1/index.d.ts",
+      "import": "./hub.gke.io/v1/index.mjs",
+      "require": "./hub.gke.io/v1/index.js"
+    },
+    "./hub.gke.io/v1/*": {
+      "types": "./hub.gke.io/v1/*.d.ts",
+      "import": "./hub.gke.io/v1/*.mjs",
+      "require": "./hub.gke.io/v1/*.js"
+    },
+    "./hub.gke.io/v1beta1": {
+      "types": "./hub.gke.io/v1beta1/index.d.ts",
+      "import": "./hub.gke.io/v1beta1/index.mjs",
+      "require": "./hub.gke.io/v1beta1/index.js"
+    },
+    "./hub.gke.io/v1beta1/*": {
+      "types": "./hub.gke.io/v1beta1/*.d.ts",
+      "import": "./hub.gke.io/v1beta1/*.mjs",
+      "require": "./hub.gke.io/v1beta1/*.js"
+    },
+    "./iam.cnrm.cloud.google.com": {
+      "types": "./iam.cnrm.cloud.google.com/index.d.ts",
+      "import": "./iam.cnrm.cloud.google.com/index.mjs",
+      "require": "./iam.cnrm.cloud.google.com/index.js"
+    },
+    "./iam.cnrm.cloud.google.com/v1beta1": {
+      "types": "./iam.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./iam.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./iam.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./iam.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./iam.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./iam.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./iam.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./iap.cnrm.cloud.google.com": {
+      "types": "./iap.cnrm.cloud.google.com/index.d.ts",
+      "import": "./iap.cnrm.cloud.google.com/index.mjs",
+      "require": "./iap.cnrm.cloud.google.com/index.js"
+    },
+    "./iap.cnrm.cloud.google.com/v1beta1": {
+      "types": "./iap.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./iap.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./iap.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./iap.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./iap.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./iap.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./iap.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./identityplatform.cnrm.cloud.google.com": {
+      "types": "./identityplatform.cnrm.cloud.google.com/index.d.ts",
+      "import": "./identityplatform.cnrm.cloud.google.com/index.mjs",
+      "require": "./identityplatform.cnrm.cloud.google.com/index.js"
+    },
+    "./identityplatform.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./identityplatform.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./identityplatform.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./identityplatform.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./identityplatform.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./identityplatform.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./identityplatform.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./identityplatform.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./identityplatform.cnrm.cloud.google.com/v1beta1": {
+      "types": "./identityplatform.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./identityplatform.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./identityplatform.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./identityplatform.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./identityplatform.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./identityplatform.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./identityplatform.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./kms.cnrm.cloud.google.com": {
+      "types": "./kms.cnrm.cloud.google.com/index.d.ts",
+      "import": "./kms.cnrm.cloud.google.com/index.mjs",
+      "require": "./kms.cnrm.cloud.google.com/index.js"
+    },
+    "./kms.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./kms.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./kms.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./kms.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./kms.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./kms.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./kms.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./kms.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./kms.cnrm.cloud.google.com/v1beta1": {
+      "types": "./kms.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./kms.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./kms.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./kms.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./kms.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./kms.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./kms.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./logging.cnrm.cloud.google.com": {
+      "types": "./logging.cnrm.cloud.google.com/index.d.ts",
+      "import": "./logging.cnrm.cloud.google.com/index.mjs",
+      "require": "./logging.cnrm.cloud.google.com/index.js"
+    },
+    "./logging.cnrm.cloud.google.com/v1beta1": {
+      "types": "./logging.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./logging.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./logging.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./logging.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./logging.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./logging.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./logging.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./memcache.cnrm.cloud.google.com": {
+      "types": "./memcache.cnrm.cloud.google.com/index.d.ts",
+      "import": "./memcache.cnrm.cloud.google.com/index.mjs",
+      "require": "./memcache.cnrm.cloud.google.com/index.js"
+    },
+    "./memcache.cnrm.cloud.google.com/v1beta1": {
+      "types": "./memcache.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./memcache.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./memcache.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./memcache.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./memcache.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./memcache.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./memcache.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./mlengine.cnrm.cloud.google.com": {
+      "types": "./mlengine.cnrm.cloud.google.com/index.d.ts",
+      "import": "./mlengine.cnrm.cloud.google.com/index.mjs",
+      "require": "./mlengine.cnrm.cloud.google.com/index.js"
+    },
+    "./mlengine.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./mlengine.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./mlengine.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./mlengine.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./mlengine.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./mlengine.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./mlengine.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./mlengine.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./monitoring.cnrm.cloud.google.com": {
+      "types": "./monitoring.cnrm.cloud.google.com/index.d.ts",
+      "import": "./monitoring.cnrm.cloud.google.com/index.mjs",
+      "require": "./monitoring.cnrm.cloud.google.com/index.js"
+    },
+    "./monitoring.cnrm.cloud.google.com/v1beta1": {
+      "types": "./monitoring.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./monitoring.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./monitoring.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./monitoring.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./monitoring.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./monitoring.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./monitoring.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./monitoring.gke.io": {
+      "types": "./monitoring.gke.io/index.d.ts",
+      "import": "./monitoring.gke.io/index.mjs",
+      "require": "./monitoring.gke.io/index.js"
+    },
+    "./monitoring.gke.io/v1alpha1": {
+      "types": "./monitoring.gke.io/v1alpha1/index.d.ts",
+      "import": "./monitoring.gke.io/v1alpha1/index.mjs",
+      "require": "./monitoring.gke.io/v1alpha1/index.js"
+    },
+    "./monitoring.gke.io/v1alpha1/*": {
+      "types": "./monitoring.gke.io/v1alpha1/*.d.ts",
+      "import": "./monitoring.gke.io/v1alpha1/*.mjs",
+      "require": "./monitoring.gke.io/v1alpha1/*.js"
+    },
+    "./net.gke.io": {
+      "types": "./net.gke.io/index.d.ts",
+      "import": "./net.gke.io/index.mjs",
+      "require": "./net.gke.io/index.js"
+    },
+    "./net.gke.io/v1": {
+      "types": "./net.gke.io/v1/index.d.ts",
+      "import": "./net.gke.io/v1/index.mjs",
+      "require": "./net.gke.io/v1/index.js"
+    },
+    "./net.gke.io/v1/*": {
+      "types": "./net.gke.io/v1/*.d.ts",
+      "import": "./net.gke.io/v1/*.mjs",
+      "require": "./net.gke.io/v1/*.js"
+    },
+    "./net.gke.io/v1alpha1": {
+      "types": "./net.gke.io/v1alpha1/index.d.ts",
+      "import": "./net.gke.io/v1alpha1/index.mjs",
+      "require": "./net.gke.io/v1alpha1/index.js"
+    },
+    "./net.gke.io/v1alpha1/*": {
+      "types": "./net.gke.io/v1alpha1/*.d.ts",
+      "import": "./net.gke.io/v1alpha1/*.mjs",
+      "require": "./net.gke.io/v1alpha1/*.js"
+    },
+    "./networkconnectivity.cnrm.cloud.google.com": {
+      "types": "./networkconnectivity.cnrm.cloud.google.com/index.d.ts",
+      "import": "./networkconnectivity.cnrm.cloud.google.com/index.mjs",
+      "require": "./networkconnectivity.cnrm.cloud.google.com/index.js"
+    },
+    "./networkconnectivity.cnrm.cloud.google.com/v1beta1": {
+      "types": "./networkconnectivity.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./networkconnectivity.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./networkconnectivity.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./networkconnectivity.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./networkconnectivity.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./networkconnectivity.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./networkconnectivity.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./networking.gke.io": {
+      "types": "./networking.gke.io/index.d.ts",
+      "import": "./networking.gke.io/index.mjs",
+      "require": "./networking.gke.io/index.js"
+    },
+    "./networking.gke.io/v1": {
+      "types": "./networking.gke.io/v1/index.d.ts",
+      "import": "./networking.gke.io/v1/index.mjs",
+      "require": "./networking.gke.io/v1/index.js"
+    },
+    "./networking.gke.io/v1/*": {
+      "types": "./networking.gke.io/v1/*.d.ts",
+      "import": "./networking.gke.io/v1/*.mjs",
+      "require": "./networking.gke.io/v1/*.js"
+    },
+    "./networking.gke.io/v1alpha1": {
+      "types": "./networking.gke.io/v1alpha1/index.d.ts",
+      "import": "./networking.gke.io/v1alpha1/index.mjs",
+      "require": "./networking.gke.io/v1alpha1/index.js"
+    },
+    "./networking.gke.io/v1alpha1/*": {
+      "types": "./networking.gke.io/v1alpha1/*.d.ts",
+      "import": "./networking.gke.io/v1alpha1/*.mjs",
+      "require": "./networking.gke.io/v1alpha1/*.js"
+    },
+    "./networking.gke.io/v1beta1": {
+      "types": "./networking.gke.io/v1beta1/index.d.ts",
+      "import": "./networking.gke.io/v1beta1/index.mjs",
+      "require": "./networking.gke.io/v1beta1/index.js"
+    },
+    "./networking.gke.io/v1beta1/*": {
+      "types": "./networking.gke.io/v1beta1/*.d.ts",
+      "import": "./networking.gke.io/v1beta1/*.mjs",
+      "require": "./networking.gke.io/v1beta1/*.js"
+    },
+    "./networking.gke.io/v1beta2": {
+      "types": "./networking.gke.io/v1beta2/index.d.ts",
+      "import": "./networking.gke.io/v1beta2/index.mjs",
+      "require": "./networking.gke.io/v1beta2/index.js"
+    },
+    "./networking.gke.io/v1beta2/*": {
+      "types": "./networking.gke.io/v1beta2/*.d.ts",
+      "import": "./networking.gke.io/v1beta2/*.mjs",
+      "require": "./networking.gke.io/v1beta2/*.js"
+    },
+    "./networkmanagement.cnrm.cloud.google.com": {
+      "types": "./networkmanagement.cnrm.cloud.google.com/index.d.ts",
+      "import": "./networkmanagement.cnrm.cloud.google.com/index.mjs",
+      "require": "./networkmanagement.cnrm.cloud.google.com/index.js"
+    },
+    "./networkmanagement.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./networkmanagement.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./networkmanagement.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./networkmanagement.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./networkmanagement.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./networkmanagement.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./networkmanagement.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./networkmanagement.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./networksecurity.cnrm.cloud.google.com": {
+      "types": "./networksecurity.cnrm.cloud.google.com/index.d.ts",
+      "import": "./networksecurity.cnrm.cloud.google.com/index.mjs",
+      "require": "./networksecurity.cnrm.cloud.google.com/index.js"
+    },
+    "./networksecurity.cnrm.cloud.google.com/v1beta1": {
+      "types": "./networksecurity.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./networksecurity.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./networksecurity.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./networksecurity.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./networksecurity.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./networksecurity.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./networksecurity.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./networkservices.cnrm.cloud.google.com": {
+      "types": "./networkservices.cnrm.cloud.google.com/index.d.ts",
+      "import": "./networkservices.cnrm.cloud.google.com/index.mjs",
+      "require": "./networkservices.cnrm.cloud.google.com/index.js"
+    },
+    "./networkservices.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./networkservices.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./networkservices.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./networkservices.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./networkservices.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./networkservices.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./networkservices.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./networkservices.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./networkservices.cnrm.cloud.google.com/v1beta1": {
+      "types": "./networkservices.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./networkservices.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./networkservices.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./networkservices.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./networkservices.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./networkservices.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./networkservices.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./nodemanagement.gke.io": {
+      "types": "./nodemanagement.gke.io/index.d.ts",
+      "import": "./nodemanagement.gke.io/index.mjs",
+      "require": "./nodemanagement.gke.io/index.js"
+    },
+    "./nodemanagement.gke.io/v1alpha1": {
+      "types": "./nodemanagement.gke.io/v1alpha1/index.d.ts",
+      "import": "./nodemanagement.gke.io/v1alpha1/index.mjs",
+      "require": "./nodemanagement.gke.io/v1alpha1/index.js"
+    },
+    "./nodemanagement.gke.io/v1alpha1/*": {
+      "types": "./nodemanagement.gke.io/v1alpha1/*.d.ts",
+      "import": "./nodemanagement.gke.io/v1alpha1/*.mjs",
+      "require": "./nodemanagement.gke.io/v1alpha1/*.js"
+    },
+    "./notebooks.cnrm.cloud.google.com": {
+      "types": "./notebooks.cnrm.cloud.google.com/index.d.ts",
+      "import": "./notebooks.cnrm.cloud.google.com/index.mjs",
+      "require": "./notebooks.cnrm.cloud.google.com/index.js"
+    },
+    "./notebooks.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./notebooks.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./notebooks.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./notebooks.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./notebooks.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./notebooks.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./notebooks.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./notebooks.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./orgpolicy.cnrm.cloud.google.com": {
+      "types": "./orgpolicy.cnrm.cloud.google.com/index.d.ts",
+      "import": "./orgpolicy.cnrm.cloud.google.com/index.mjs",
+      "require": "./orgpolicy.cnrm.cloud.google.com/index.js"
+    },
+    "./orgpolicy.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./orgpolicy.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./orgpolicy.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./orgpolicy.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./orgpolicy.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./orgpolicy.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./orgpolicy.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./orgpolicy.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./osconfig.cnrm.cloud.google.com": {
+      "types": "./osconfig.cnrm.cloud.google.com/index.d.ts",
+      "import": "./osconfig.cnrm.cloud.google.com/index.mjs",
+      "require": "./osconfig.cnrm.cloud.google.com/index.js"
+    },
+    "./osconfig.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./osconfig.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./osconfig.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./osconfig.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./osconfig.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./osconfig.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./osconfig.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./osconfig.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./osconfig.cnrm.cloud.google.com/v1beta1": {
+      "types": "./osconfig.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./osconfig.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./osconfig.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./osconfig.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./osconfig.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./osconfig.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./osconfig.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./oslogin.cnrm.cloud.google.com": {
+      "types": "./oslogin.cnrm.cloud.google.com/index.d.ts",
+      "import": "./oslogin.cnrm.cloud.google.com/index.mjs",
+      "require": "./oslogin.cnrm.cloud.google.com/index.js"
+    },
+    "./oslogin.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./oslogin.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./oslogin.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./oslogin.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./oslogin.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./oslogin.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./oslogin.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./oslogin.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./package.json": "./package.json",
+    "./privateca.cnrm.cloud.google.com": {
+      "types": "./privateca.cnrm.cloud.google.com/index.d.ts",
+      "import": "./privateca.cnrm.cloud.google.com/index.mjs",
+      "require": "./privateca.cnrm.cloud.google.com/index.js"
+    },
+    "./privateca.cnrm.cloud.google.com/v1beta1": {
+      "types": "./privateca.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./privateca.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./privateca.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./privateca.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./privateca.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./privateca.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./privateca.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./pubsub.cnrm.cloud.google.com": {
+      "types": "./pubsub.cnrm.cloud.google.com/index.d.ts",
+      "import": "./pubsub.cnrm.cloud.google.com/index.mjs",
+      "require": "./pubsub.cnrm.cloud.google.com/index.js"
+    },
+    "./pubsub.cnrm.cloud.google.com/v1beta1": {
+      "types": "./pubsub.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./pubsub.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./pubsub.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./pubsub.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./pubsub.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./pubsub.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./pubsub.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./pubsublite.cnrm.cloud.google.com": {
+      "types": "./pubsublite.cnrm.cloud.google.com/index.d.ts",
+      "import": "./pubsublite.cnrm.cloud.google.com/index.mjs",
+      "require": "./pubsublite.cnrm.cloud.google.com/index.js"
+    },
+    "./pubsublite.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./pubsublite.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./pubsublite.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./pubsublite.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./pubsublite.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./pubsublite.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./pubsublite.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./pubsublite.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./pubsublite.cnrm.cloud.google.com/v1beta1": {
+      "types": "./pubsublite.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./pubsublite.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./pubsublite.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./pubsublite.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./pubsublite.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./pubsublite.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./pubsublite.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./recaptchaenterprise.cnrm.cloud.google.com": {
+      "types": "./recaptchaenterprise.cnrm.cloud.google.com/index.d.ts",
+      "import": "./recaptchaenterprise.cnrm.cloud.google.com/index.mjs",
+      "require": "./recaptchaenterprise.cnrm.cloud.google.com/index.js"
+    },
+    "./recaptchaenterprise.cnrm.cloud.google.com/v1beta1": {
+      "types": "./recaptchaenterprise.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./recaptchaenterprise.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./recaptchaenterprise.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./recaptchaenterprise.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./recaptchaenterprise.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./recaptchaenterprise.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./recaptchaenterprise.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./redis.cnrm.cloud.google.com": {
+      "types": "./redis.cnrm.cloud.google.com/index.d.ts",
+      "import": "./redis.cnrm.cloud.google.com/index.mjs",
+      "require": "./redis.cnrm.cloud.google.com/index.js"
+    },
+    "./redis.cnrm.cloud.google.com/v1beta1": {
+      "types": "./redis.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./redis.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./redis.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./redis.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./redis.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./redis.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./redis.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./resourcemanager.cnrm.cloud.google.com": {
+      "types": "./resourcemanager.cnrm.cloud.google.com/index.d.ts",
+      "import": "./resourcemanager.cnrm.cloud.google.com/index.mjs",
+      "require": "./resourcemanager.cnrm.cloud.google.com/index.js"
+    },
+    "./resourcemanager.cnrm.cloud.google.com/v1beta1": {
+      "types": "./resourcemanager.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./resourcemanager.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./resourcemanager.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./resourcemanager.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./resourcemanager.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./resourcemanager.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./resourcemanager.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./run.cnrm.cloud.google.com": {
+      "types": "./run.cnrm.cloud.google.com/index.d.ts",
+      "import": "./run.cnrm.cloud.google.com/index.mjs",
+      "require": "./run.cnrm.cloud.google.com/index.js"
+    },
+    "./run.cnrm.cloud.google.com/v1beta1": {
+      "types": "./run.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./run.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./run.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./run.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./run.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./run.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./run.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./secretmanager.cnrm.cloud.google.com": {
+      "types": "./secretmanager.cnrm.cloud.google.com/index.d.ts",
+      "import": "./secretmanager.cnrm.cloud.google.com/index.mjs",
+      "require": "./secretmanager.cnrm.cloud.google.com/index.js"
+    },
+    "./secretmanager.cnrm.cloud.google.com/v1beta1": {
+      "types": "./secretmanager.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./secretmanager.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./secretmanager.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./secretmanager.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./secretmanager.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./secretmanager.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./secretmanager.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./securitycenter.cnrm.cloud.google.com": {
+      "types": "./securitycenter.cnrm.cloud.google.com/index.d.ts",
+      "import": "./securitycenter.cnrm.cloud.google.com/index.mjs",
+      "require": "./securitycenter.cnrm.cloud.google.com/index.js"
+    },
+    "./securitycenter.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./securitycenter.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./securitycenter.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./securitycenter.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./securitycenter.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./securitycenter.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./securitycenter.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./securitycenter.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./servicedirectory.cnrm.cloud.google.com": {
+      "types": "./servicedirectory.cnrm.cloud.google.com/index.d.ts",
+      "import": "./servicedirectory.cnrm.cloud.google.com/index.mjs",
+      "require": "./servicedirectory.cnrm.cloud.google.com/index.js"
+    },
+    "./servicedirectory.cnrm.cloud.google.com/v1beta1": {
+      "types": "./servicedirectory.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./servicedirectory.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./servicedirectory.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./servicedirectory.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./servicedirectory.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./servicedirectory.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./servicedirectory.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./servicenetworking.cnrm.cloud.google.com": {
+      "types": "./servicenetworking.cnrm.cloud.google.com/index.d.ts",
+      "import": "./servicenetworking.cnrm.cloud.google.com/index.mjs",
+      "require": "./servicenetworking.cnrm.cloud.google.com/index.js"
+    },
+    "./servicenetworking.cnrm.cloud.google.com/v1beta1": {
+      "types": "./servicenetworking.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./servicenetworking.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./servicenetworking.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./servicenetworking.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./servicenetworking.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./servicenetworking.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./servicenetworking.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./serviceusage.cnrm.cloud.google.com": {
+      "types": "./serviceusage.cnrm.cloud.google.com/index.d.ts",
+      "import": "./serviceusage.cnrm.cloud.google.com/index.mjs",
+      "require": "./serviceusage.cnrm.cloud.google.com/index.js"
+    },
+    "./serviceusage.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./serviceusage.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./serviceusage.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./serviceusage.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./serviceusage.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./serviceusage.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./serviceusage.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./serviceusage.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./serviceusage.cnrm.cloud.google.com/v1beta1": {
+      "types": "./serviceusage.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./serviceusage.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./serviceusage.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./serviceusage.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./serviceusage.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./serviceusage.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./serviceusage.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./sourcerepo.cnrm.cloud.google.com": {
+      "types": "./sourcerepo.cnrm.cloud.google.com/index.d.ts",
+      "import": "./sourcerepo.cnrm.cloud.google.com/index.mjs",
+      "require": "./sourcerepo.cnrm.cloud.google.com/index.js"
+    },
+    "./sourcerepo.cnrm.cloud.google.com/v1beta1": {
+      "types": "./sourcerepo.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./sourcerepo.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./sourcerepo.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./sourcerepo.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./sourcerepo.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./sourcerepo.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./sourcerepo.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./spanner.cnrm.cloud.google.com": {
+      "types": "./spanner.cnrm.cloud.google.com/index.d.ts",
+      "import": "./spanner.cnrm.cloud.google.com/index.mjs",
+      "require": "./spanner.cnrm.cloud.google.com/index.js"
+    },
+    "./spanner.cnrm.cloud.google.com/v1beta1": {
+      "types": "./spanner.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./spanner.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./spanner.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./spanner.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./spanner.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./spanner.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./spanner.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./sql.cnrm.cloud.google.com": {
+      "types": "./sql.cnrm.cloud.google.com/index.d.ts",
+      "import": "./sql.cnrm.cloud.google.com/index.mjs",
+      "require": "./sql.cnrm.cloud.google.com/index.js"
+    },
+    "./sql.cnrm.cloud.google.com/v1beta1": {
+      "types": "./sql.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./sql.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./sql.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./sql.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./sql.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./sql.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./sql.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./storage.cnrm.cloud.google.com": {
+      "types": "./storage.cnrm.cloud.google.com/index.d.ts",
+      "import": "./storage.cnrm.cloud.google.com/index.mjs",
+      "require": "./storage.cnrm.cloud.google.com/index.js"
+    },
+    "./storage.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./storage.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./storage.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./storage.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./storage.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./storage.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./storage.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./storage.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./storage.cnrm.cloud.google.com/v1beta1": {
+      "types": "./storage.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./storage.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./storage.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./storage.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./storage.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./storage.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./storage.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./storagetransfer.cnrm.cloud.google.com": {
+      "types": "./storagetransfer.cnrm.cloud.google.com/index.d.ts",
+      "import": "./storagetransfer.cnrm.cloud.google.com/index.mjs",
+      "require": "./storagetransfer.cnrm.cloud.google.com/index.js"
+    },
+    "./storagetransfer.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./storagetransfer.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./storagetransfer.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./storagetransfer.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./storagetransfer.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./storagetransfer.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./storagetransfer.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./storagetransfer.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./storagetransfer.cnrm.cloud.google.com/v1beta1": {
+      "types": "./storagetransfer.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./storagetransfer.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./storagetransfer.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./storagetransfer.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./storagetransfer.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./storagetransfer.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./storagetransfer.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./tags.cnrm.cloud.google.com": {
+      "types": "./tags.cnrm.cloud.google.com/index.d.ts",
+      "import": "./tags.cnrm.cloud.google.com/index.mjs",
+      "require": "./tags.cnrm.cloud.google.com/index.js"
+    },
+    "./tags.cnrm.cloud.google.com/v1beta1": {
+      "types": "./tags.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./tags.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./tags.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./tags.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./tags.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./tags.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./tags.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./tpu.cnrm.cloud.google.com": {
+      "types": "./tpu.cnrm.cloud.google.com/index.d.ts",
+      "import": "./tpu.cnrm.cloud.google.com/index.mjs",
+      "require": "./tpu.cnrm.cloud.google.com/index.js"
+    },
+    "./tpu.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./tpu.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./tpu.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./tpu.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./tpu.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./tpu.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./tpu.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./tpu.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./vertexai.cnrm.cloud.google.com": {
+      "types": "./vertexai.cnrm.cloud.google.com/index.d.ts",
+      "import": "./vertexai.cnrm.cloud.google.com/index.mjs",
+      "require": "./vertexai.cnrm.cloud.google.com/index.js"
+    },
+    "./vertexai.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./vertexai.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./vertexai.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./vertexai.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./vertexai.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./vertexai.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./vertexai.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./vertexai.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./vpcaccess.cnrm.cloud.google.com": {
+      "types": "./vpcaccess.cnrm.cloud.google.com/index.d.ts",
+      "import": "./vpcaccess.cnrm.cloud.google.com/index.mjs",
+      "require": "./vpcaccess.cnrm.cloud.google.com/index.js"
+    },
+    "./vpcaccess.cnrm.cloud.google.com/v1beta1": {
+      "types": "./vpcaccess.cnrm.cloud.google.com/v1beta1/index.d.ts",
+      "import": "./vpcaccess.cnrm.cloud.google.com/v1beta1/index.mjs",
+      "require": "./vpcaccess.cnrm.cloud.google.com/v1beta1/index.js"
+    },
+    "./vpcaccess.cnrm.cloud.google.com/v1beta1/*": {
+      "types": "./vpcaccess.cnrm.cloud.google.com/v1beta1/*.d.ts",
+      "import": "./vpcaccess.cnrm.cloud.google.com/v1beta1/*.mjs",
+      "require": "./vpcaccess.cnrm.cloud.google.com/v1beta1/*.js"
+    },
+    "./workflows.cnrm.cloud.google.com": {
+      "types": "./workflows.cnrm.cloud.google.com/index.d.ts",
+      "import": "./workflows.cnrm.cloud.google.com/index.mjs",
+      "require": "./workflows.cnrm.cloud.google.com/index.js"
+    },
+    "./workflows.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./workflows.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./workflows.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./workflows.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./workflows.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./workflows.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./workflows.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./workflows.cnrm.cloud.google.com/v1alpha1/*.js"
+    },
+    "./workstations.cnrm.cloud.google.com": {
+      "types": "./workstations.cnrm.cloud.google.com/index.d.ts",
+      "import": "./workstations.cnrm.cloud.google.com/index.mjs",
+      "require": "./workstations.cnrm.cloud.google.com/index.js"
+    },
+    "./workstations.cnrm.cloud.google.com/v1alpha1": {
+      "types": "./workstations.cnrm.cloud.google.com/v1alpha1/index.d.ts",
+      "import": "./workstations.cnrm.cloud.google.com/v1alpha1/index.mjs",
+      "require": "./workstations.cnrm.cloud.google.com/v1alpha1/index.js"
+    },
+    "./workstations.cnrm.cloud.google.com/v1alpha1/*": {
+      "types": "./workstations.cnrm.cloud.google.com/v1alpha1/*.d.ts",
+      "import": "./workstations.cnrm.cloud.google.com/v1alpha1/*.mjs",
+      "require": "./workstations.cnrm.cloud.google.com/v1alpha1/*.js"
+    }
+  }
+}

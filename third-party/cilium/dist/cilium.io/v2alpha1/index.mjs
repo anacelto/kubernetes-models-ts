@@ -1,0 +1,1 @@
+export*from"./CiliumBGPLoadBalancerIPPool.mjs";export*from"./CiliumBGPPeeringPolicy.mjs";export*from"./CiliumEgressNATPolicy.mjs";export*from"./CiliumEndpointSlice.mjs";

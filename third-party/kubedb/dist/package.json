@@ -1,0 +1,164 @@
+{
+  "name": "@kubernetes-models/kubedb",
+  "version": "0.4.2",
+  "description": "KubeDB models",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/kubedb",
+  "author": "Tommy Chen <tommy351@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "kubedb"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "vitest": "^0.29.8"
+  },
+  "crd-generate": {
+    "input": [
+      "https://raw.githubusercontent.com/kubedb/installer/v2023.04.10/crds/kubedb-crds.yaml",
+      "https://raw.githubusercontent.com/kubedb/installer/v2023.04.10/crds/kubedb-catalog-crds.yaml"
+    ],
+    "output": "./gen"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./autoscaling.kubedb.com": {
+      "types": "./autoscaling.kubedb.com/index.d.ts",
+      "import": "./autoscaling.kubedb.com/index.mjs",
+      "require": "./autoscaling.kubedb.com/index.js"
+    },
+    "./autoscaling.kubedb.com/v1alpha1": {
+      "types": "./autoscaling.kubedb.com/v1alpha1/index.d.ts",
+      "import": "./autoscaling.kubedb.com/v1alpha1/index.mjs",
+      "require": "./autoscaling.kubedb.com/v1alpha1/index.js"
+    },
+    "./autoscaling.kubedb.com/v1alpha1/*": {
+      "types": "./autoscaling.kubedb.com/v1alpha1/*.d.ts",
+      "import": "./autoscaling.kubedb.com/v1alpha1/*.mjs",
+      "require": "./autoscaling.kubedb.com/v1alpha1/*.js"
+    },
+    "./catalog.kubedb.com": {
+      "types": "./catalog.kubedb.com/index.d.ts",
+      "import": "./catalog.kubedb.com/index.mjs",
+      "require": "./catalog.kubedb.com/index.js"
+    },
+    "./catalog.kubedb.com/v1alpha1": {
+      "types": "./catalog.kubedb.com/v1alpha1/index.d.ts",
+      "import": "./catalog.kubedb.com/v1alpha1/index.mjs",
+      "require": "./catalog.kubedb.com/v1alpha1/index.js"
+    },
+    "./catalog.kubedb.com/v1alpha1/*": {
+      "types": "./catalog.kubedb.com/v1alpha1/*.d.ts",
+      "import": "./catalog.kubedb.com/v1alpha1/*.mjs",
+      "require": "./catalog.kubedb.com/v1alpha1/*.js"
+    },
+    "./dashboard.kubedb.com": {
+      "types": "./dashboard.kubedb.com/index.d.ts",
+      "import": "./dashboard.kubedb.com/index.mjs",
+      "require": "./dashboard.kubedb.com/index.js"
+    },
+    "./dashboard.kubedb.com/v1alpha1": {
+      "types": "./dashboard.kubedb.com/v1alpha1/index.d.ts",
+      "import": "./dashboard.kubedb.com/v1alpha1/index.mjs",
+      "require": "./dashboard.kubedb.com/v1alpha1/index.js"
+    },
+    "./dashboard.kubedb.com/v1alpha1/*": {
+      "types": "./dashboard.kubedb.com/v1alpha1/*.d.ts",
+      "import": "./dashboard.kubedb.com/v1alpha1/*.mjs",
+      "require": "./dashboard.kubedb.com/v1alpha1/*.js"
+    },
+    "./kubedb.com": {
+      "types": "./kubedb.com/index.d.ts",
+      "import": "./kubedb.com/index.mjs",
+      "require": "./kubedb.com/index.js"
+    },
+    "./kubedb.com/v1alpha2": {
+      "types": "./kubedb.com/v1alpha2/index.d.ts",
+      "import": "./kubedb.com/v1alpha2/index.mjs",
+      "require": "./kubedb.com/v1alpha2/index.js"
+    },
+    "./kubedb.com/v1alpha2/*": {
+      "types": "./kubedb.com/v1alpha2/*.d.ts",
+      "import": "./kubedb.com/v1alpha2/*.mjs",
+      "require": "./kubedb.com/v1alpha2/*.js"
+    },
+    "./ops.kubedb.com": {
+      "types": "./ops.kubedb.com/index.d.ts",
+      "import": "./ops.kubedb.com/index.mjs",
+      "require": "./ops.kubedb.com/index.js"
+    },
+    "./ops.kubedb.com/v1alpha1": {
+      "types": "./ops.kubedb.com/v1alpha1/index.d.ts",
+      "import": "./ops.kubedb.com/v1alpha1/index.mjs",
+      "require": "./ops.kubedb.com/v1alpha1/index.js"
+    },
+    "./ops.kubedb.com/v1alpha1/*": {
+      "types": "./ops.kubedb.com/v1alpha1/*.d.ts",
+      "import": "./ops.kubedb.com/v1alpha1/*.mjs",
+      "require": "./ops.kubedb.com/v1alpha1/*.js"
+    },
+    "./package.json": "./package.json",
+    "./postgres.kubedb.com": {
+      "types": "./postgres.kubedb.com/index.d.ts",
+      "import": "./postgres.kubedb.com/index.mjs",
+      "require": "./postgres.kubedb.com/index.js"
+    },
+    "./postgres.kubedb.com/v1alpha1": {
+      "types": "./postgres.kubedb.com/v1alpha1/index.d.ts",
+      "import": "./postgres.kubedb.com/v1alpha1/index.mjs",
+      "require": "./postgres.kubedb.com/v1alpha1/index.js"
+    },
+    "./postgres.kubedb.com/v1alpha1/*": {
+      "types": "./postgres.kubedb.com/v1alpha1/*.d.ts",
+      "import": "./postgres.kubedb.com/v1alpha1/*.mjs",
+      "require": "./postgres.kubedb.com/v1alpha1/*.js"
+    },
+    "./schema.kubedb.com": {
+      "types": "./schema.kubedb.com/index.d.ts",
+      "import": "./schema.kubedb.com/index.mjs",
+      "require": "./schema.kubedb.com/index.js"
+    },
+    "./schema.kubedb.com/v1alpha1": {
+      "types": "./schema.kubedb.com/v1alpha1/index.d.ts",
+      "import": "./schema.kubedb.com/v1alpha1/index.mjs",
+      "require": "./schema.kubedb.com/v1alpha1/index.js"
+    },
+    "./schema.kubedb.com/v1alpha1/*": {
+      "types": "./schema.kubedb.com/v1alpha1/*.d.ts",
+      "import": "./schema.kubedb.com/v1alpha1/*.mjs",
+      "require": "./schema.kubedb.com/v1alpha1/*.js"
+    }
+  }
+}

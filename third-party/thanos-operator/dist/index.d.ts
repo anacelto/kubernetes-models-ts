@@ -1,0 +1,1 @@
+export * as monitoringBanzaicloudIo from "./monitoring.banzaicloud.io/index";

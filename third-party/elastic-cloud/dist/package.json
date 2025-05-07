@@ -1,0 +1,278 @@
+{
+  "name": "@kubernetes-models/elastic-cloud",
+  "version": "0.2.2",
+  "description": "You Know, for Search.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/elastic-cloud",
+  "author": "Eddie Wen <eddiewen.tw@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "elastic-cloud"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "vitest": "^0.29.8"
+  },
+  "crd-generate": {
+    "input": [
+      "https://download.elastic.co/downloads/eck/2.11.1/crds.yaml"
+    ],
+    "output": "./gen"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./agent.k8s.elastic.co": {
+      "types": "./agent.k8s.elastic.co/index.d.ts",
+      "import": "./agent.k8s.elastic.co/index.mjs",
+      "require": "./agent.k8s.elastic.co/index.js"
+    },
+    "./agent.k8s.elastic.co/v1alpha1": {
+      "types": "./agent.k8s.elastic.co/v1alpha1/index.d.ts",
+      "import": "./agent.k8s.elastic.co/v1alpha1/index.mjs",
+      "require": "./agent.k8s.elastic.co/v1alpha1/index.js"
+    },
+    "./agent.k8s.elastic.co/v1alpha1/*": {
+      "types": "./agent.k8s.elastic.co/v1alpha1/*.d.ts",
+      "import": "./agent.k8s.elastic.co/v1alpha1/*.mjs",
+      "require": "./agent.k8s.elastic.co/v1alpha1/*.js"
+    },
+    "./apm.k8s.elastic.co": {
+      "types": "./apm.k8s.elastic.co/index.d.ts",
+      "import": "./apm.k8s.elastic.co/index.mjs",
+      "require": "./apm.k8s.elastic.co/index.js"
+    },
+    "./apm.k8s.elastic.co/v1": {
+      "types": "./apm.k8s.elastic.co/v1/index.d.ts",
+      "import": "./apm.k8s.elastic.co/v1/index.mjs",
+      "require": "./apm.k8s.elastic.co/v1/index.js"
+    },
+    "./apm.k8s.elastic.co/v1/*": {
+      "types": "./apm.k8s.elastic.co/v1/*.d.ts",
+      "import": "./apm.k8s.elastic.co/v1/*.mjs",
+      "require": "./apm.k8s.elastic.co/v1/*.js"
+    },
+    "./apm.k8s.elastic.co/v1alpha1": {
+      "types": "./apm.k8s.elastic.co/v1alpha1/index.d.ts",
+      "import": "./apm.k8s.elastic.co/v1alpha1/index.mjs",
+      "require": "./apm.k8s.elastic.co/v1alpha1/index.js"
+    },
+    "./apm.k8s.elastic.co/v1alpha1/*": {
+      "types": "./apm.k8s.elastic.co/v1alpha1/*.d.ts",
+      "import": "./apm.k8s.elastic.co/v1alpha1/*.mjs",
+      "require": "./apm.k8s.elastic.co/v1alpha1/*.js"
+    },
+    "./apm.k8s.elastic.co/v1beta1": {
+      "types": "./apm.k8s.elastic.co/v1beta1/index.d.ts",
+      "import": "./apm.k8s.elastic.co/v1beta1/index.mjs",
+      "require": "./apm.k8s.elastic.co/v1beta1/index.js"
+    },
+    "./apm.k8s.elastic.co/v1beta1/*": {
+      "types": "./apm.k8s.elastic.co/v1beta1/*.d.ts",
+      "import": "./apm.k8s.elastic.co/v1beta1/*.mjs",
+      "require": "./apm.k8s.elastic.co/v1beta1/*.js"
+    },
+    "./autoscaling.k8s.elastic.co": {
+      "types": "./autoscaling.k8s.elastic.co/index.d.ts",
+      "import": "./autoscaling.k8s.elastic.co/index.mjs",
+      "require": "./autoscaling.k8s.elastic.co/index.js"
+    },
+    "./autoscaling.k8s.elastic.co/v1alpha1": {
+      "types": "./autoscaling.k8s.elastic.co/v1alpha1/index.d.ts",
+      "import": "./autoscaling.k8s.elastic.co/v1alpha1/index.mjs",
+      "require": "./autoscaling.k8s.elastic.co/v1alpha1/index.js"
+    },
+    "./autoscaling.k8s.elastic.co/v1alpha1/*": {
+      "types": "./autoscaling.k8s.elastic.co/v1alpha1/*.d.ts",
+      "import": "./autoscaling.k8s.elastic.co/v1alpha1/*.mjs",
+      "require": "./autoscaling.k8s.elastic.co/v1alpha1/*.js"
+    },
+    "./beat.k8s.elastic.co": {
+      "types": "./beat.k8s.elastic.co/index.d.ts",
+      "import": "./beat.k8s.elastic.co/index.mjs",
+      "require": "./beat.k8s.elastic.co/index.js"
+    },
+    "./beat.k8s.elastic.co/v1beta1": {
+      "types": "./beat.k8s.elastic.co/v1beta1/index.d.ts",
+      "import": "./beat.k8s.elastic.co/v1beta1/index.mjs",
+      "require": "./beat.k8s.elastic.co/v1beta1/index.js"
+    },
+    "./beat.k8s.elastic.co/v1beta1/*": {
+      "types": "./beat.k8s.elastic.co/v1beta1/*.d.ts",
+      "import": "./beat.k8s.elastic.co/v1beta1/*.mjs",
+      "require": "./beat.k8s.elastic.co/v1beta1/*.js"
+    },
+    "./elasticsearch.k8s.elastic.co": {
+      "types": "./elasticsearch.k8s.elastic.co/index.d.ts",
+      "import": "./elasticsearch.k8s.elastic.co/index.mjs",
+      "require": "./elasticsearch.k8s.elastic.co/index.js"
+    },
+    "./elasticsearch.k8s.elastic.co/v1": {
+      "types": "./elasticsearch.k8s.elastic.co/v1/index.d.ts",
+      "import": "./elasticsearch.k8s.elastic.co/v1/index.mjs",
+      "require": "./elasticsearch.k8s.elastic.co/v1/index.js"
+    },
+    "./elasticsearch.k8s.elastic.co/v1/*": {
+      "types": "./elasticsearch.k8s.elastic.co/v1/*.d.ts",
+      "import": "./elasticsearch.k8s.elastic.co/v1/*.mjs",
+      "require": "./elasticsearch.k8s.elastic.co/v1/*.js"
+    },
+    "./elasticsearch.k8s.elastic.co/v1alpha1": {
+      "types": "./elasticsearch.k8s.elastic.co/v1alpha1/index.d.ts",
+      "import": "./elasticsearch.k8s.elastic.co/v1alpha1/index.mjs",
+      "require": "./elasticsearch.k8s.elastic.co/v1alpha1/index.js"
+    },
+    "./elasticsearch.k8s.elastic.co/v1alpha1/*": {
+      "types": "./elasticsearch.k8s.elastic.co/v1alpha1/*.d.ts",
+      "import": "./elasticsearch.k8s.elastic.co/v1alpha1/*.mjs",
+      "require": "./elasticsearch.k8s.elastic.co/v1alpha1/*.js"
+    },
+    "./elasticsearch.k8s.elastic.co/v1beta1": {
+      "types": "./elasticsearch.k8s.elastic.co/v1beta1/index.d.ts",
+      "import": "./elasticsearch.k8s.elastic.co/v1beta1/index.mjs",
+      "require": "./elasticsearch.k8s.elastic.co/v1beta1/index.js"
+    },
+    "./elasticsearch.k8s.elastic.co/v1beta1/*": {
+      "types": "./elasticsearch.k8s.elastic.co/v1beta1/*.d.ts",
+      "import": "./elasticsearch.k8s.elastic.co/v1beta1/*.mjs",
+      "require": "./elasticsearch.k8s.elastic.co/v1beta1/*.js"
+    },
+    "./enterprisesearch.k8s.elastic.co": {
+      "types": "./enterprisesearch.k8s.elastic.co/index.d.ts",
+      "import": "./enterprisesearch.k8s.elastic.co/index.mjs",
+      "require": "./enterprisesearch.k8s.elastic.co/index.js"
+    },
+    "./enterprisesearch.k8s.elastic.co/v1": {
+      "types": "./enterprisesearch.k8s.elastic.co/v1/index.d.ts",
+      "import": "./enterprisesearch.k8s.elastic.co/v1/index.mjs",
+      "require": "./enterprisesearch.k8s.elastic.co/v1/index.js"
+    },
+    "./enterprisesearch.k8s.elastic.co/v1/*": {
+      "types": "./enterprisesearch.k8s.elastic.co/v1/*.d.ts",
+      "import": "./enterprisesearch.k8s.elastic.co/v1/*.mjs",
+      "require": "./enterprisesearch.k8s.elastic.co/v1/*.js"
+    },
+    "./enterprisesearch.k8s.elastic.co/v1beta1": {
+      "types": "./enterprisesearch.k8s.elastic.co/v1beta1/index.d.ts",
+      "import": "./enterprisesearch.k8s.elastic.co/v1beta1/index.mjs",
+      "require": "./enterprisesearch.k8s.elastic.co/v1beta1/index.js"
+    },
+    "./enterprisesearch.k8s.elastic.co/v1beta1/*": {
+      "types": "./enterprisesearch.k8s.elastic.co/v1beta1/*.d.ts",
+      "import": "./enterprisesearch.k8s.elastic.co/v1beta1/*.mjs",
+      "require": "./enterprisesearch.k8s.elastic.co/v1beta1/*.js"
+    },
+    "./kibana.k8s.elastic.co": {
+      "types": "./kibana.k8s.elastic.co/index.d.ts",
+      "import": "./kibana.k8s.elastic.co/index.mjs",
+      "require": "./kibana.k8s.elastic.co/index.js"
+    },
+    "./kibana.k8s.elastic.co/v1": {
+      "types": "./kibana.k8s.elastic.co/v1/index.d.ts",
+      "import": "./kibana.k8s.elastic.co/v1/index.mjs",
+      "require": "./kibana.k8s.elastic.co/v1/index.js"
+    },
+    "./kibana.k8s.elastic.co/v1/*": {
+      "types": "./kibana.k8s.elastic.co/v1/*.d.ts",
+      "import": "./kibana.k8s.elastic.co/v1/*.mjs",
+      "require": "./kibana.k8s.elastic.co/v1/*.js"
+    },
+    "./kibana.k8s.elastic.co/v1alpha1": {
+      "types": "./kibana.k8s.elastic.co/v1alpha1/index.d.ts",
+      "import": "./kibana.k8s.elastic.co/v1alpha1/index.mjs",
+      "require": "./kibana.k8s.elastic.co/v1alpha1/index.js"
+    },
+    "./kibana.k8s.elastic.co/v1alpha1/*": {
+      "types": "./kibana.k8s.elastic.co/v1alpha1/*.d.ts",
+      "import": "./kibana.k8s.elastic.co/v1alpha1/*.mjs",
+      "require": "./kibana.k8s.elastic.co/v1alpha1/*.js"
+    },
+    "./kibana.k8s.elastic.co/v1beta1": {
+      "types": "./kibana.k8s.elastic.co/v1beta1/index.d.ts",
+      "import": "./kibana.k8s.elastic.co/v1beta1/index.mjs",
+      "require": "./kibana.k8s.elastic.co/v1beta1/index.js"
+    },
+    "./kibana.k8s.elastic.co/v1beta1/*": {
+      "types": "./kibana.k8s.elastic.co/v1beta1/*.d.ts",
+      "import": "./kibana.k8s.elastic.co/v1beta1/*.mjs",
+      "require": "./kibana.k8s.elastic.co/v1beta1/*.js"
+    },
+    "./logstash.k8s.elastic.co": {
+      "types": "./logstash.k8s.elastic.co/index.d.ts",
+      "import": "./logstash.k8s.elastic.co/index.mjs",
+      "require": "./logstash.k8s.elastic.co/index.js"
+    },
+    "./logstash.k8s.elastic.co/v1alpha1": {
+      "types": "./logstash.k8s.elastic.co/v1alpha1/index.d.ts",
+      "import": "./logstash.k8s.elastic.co/v1alpha1/index.mjs",
+      "require": "./logstash.k8s.elastic.co/v1alpha1/index.js"
+    },
+    "./logstash.k8s.elastic.co/v1alpha1/*": {
+      "types": "./logstash.k8s.elastic.co/v1alpha1/*.d.ts",
+      "import": "./logstash.k8s.elastic.co/v1alpha1/*.mjs",
+      "require": "./logstash.k8s.elastic.co/v1alpha1/*.js"
+    },
+    "./maps.k8s.elastic.co": {
+      "types": "./maps.k8s.elastic.co/index.d.ts",
+      "import": "./maps.k8s.elastic.co/index.mjs",
+      "require": "./maps.k8s.elastic.co/index.js"
+    },
+    "./maps.k8s.elastic.co/v1alpha1": {
+      "types": "./maps.k8s.elastic.co/v1alpha1/index.d.ts",
+      "import": "./maps.k8s.elastic.co/v1alpha1/index.mjs",
+      "require": "./maps.k8s.elastic.co/v1alpha1/index.js"
+    },
+    "./maps.k8s.elastic.co/v1alpha1/*": {
+      "types": "./maps.k8s.elastic.co/v1alpha1/*.d.ts",
+      "import": "./maps.k8s.elastic.co/v1alpha1/*.mjs",
+      "require": "./maps.k8s.elastic.co/v1alpha1/*.js"
+    },
+    "./package.json": "./package.json",
+    "./stackconfigpolicy.k8s.elastic.co": {
+      "types": "./stackconfigpolicy.k8s.elastic.co/index.d.ts",
+      "import": "./stackconfigpolicy.k8s.elastic.co/index.mjs",
+      "require": "./stackconfigpolicy.k8s.elastic.co/index.js"
+    },
+    "./stackconfigpolicy.k8s.elastic.co/v1alpha1": {
+      "types": "./stackconfigpolicy.k8s.elastic.co/v1alpha1/index.d.ts",
+      "import": "./stackconfigpolicy.k8s.elastic.co/v1alpha1/index.mjs",
+      "require": "./stackconfigpolicy.k8s.elastic.co/v1alpha1/index.js"
+    },
+    "./stackconfigpolicy.k8s.elastic.co/v1alpha1/*": {
+      "types": "./stackconfigpolicy.k8s.elastic.co/v1alpha1/*.d.ts",
+      "import": "./stackconfigpolicy.k8s.elastic.co/v1alpha1/*.mjs",
+      "require": "./stackconfigpolicy.k8s.elastic.co/v1alpha1/*.js"
+    }
+  }
+}

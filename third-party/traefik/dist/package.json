@@ -1,0 +1,105 @@
+{
+  "name": "@kubernetes-models/traefik",
+  "version": "0.2.2",
+  "description": "Traefik models",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/traefik",
+  "author": "Stanley <shorwood> Horwood",
+  "license": "MIT",
+  "main": "index.cjs",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "traefik"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "vitest": "^0.29.8"
+  },
+  "crd-generate": {
+    "input": [
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.containo.us_ingressroutes.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.containo.us_ingressroutetcps.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.containo.us_ingressrouteudps.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.containo.us_middlewares.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.containo.us_middlewaretcps.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.containo.us_serverstransports.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.containo.us_tlsoptions.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.containo.us_tlsstores.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.containo.us_traefikservices.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.io_ingressroutes.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.io_ingressroutetcps.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.io_ingressrouteudps.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.io_middlewares.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.io_middlewaretcps.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.io_serverstransports.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.io_tlsoptions.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.io_tlsstores.yaml",
+      "https://raw.githubusercontent.com/traefik/traefik-helm-chart/v25.0.0/traefik/crds/traefik.io_traefikservices.yaml"
+    ],
+    "output": "./gen"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./package.json": "./package.json",
+    "./traefik.containo.us": {
+      "types": "./traefik.containo.us/index.d.ts",
+      "import": "./traefik.containo.us/index.mjs",
+      "require": "./traefik.containo.us/index.js"
+    },
+    "./traefik.containo.us/v1alpha1": {
+      "types": "./traefik.containo.us/v1alpha1/index.d.ts",
+      "import": "./traefik.containo.us/v1alpha1/index.mjs",
+      "require": "./traefik.containo.us/v1alpha1/index.js"
+    },
+    "./traefik.containo.us/v1alpha1/*": {
+      "types": "./traefik.containo.us/v1alpha1/*.d.ts",
+      "import": "./traefik.containo.us/v1alpha1/*.mjs",
+      "require": "./traefik.containo.us/v1alpha1/*.js"
+    },
+    "./traefik.io": {
+      "types": "./traefik.io/index.d.ts",
+      "import": "./traefik.io/index.mjs",
+      "require": "./traefik.io/index.js"
+    },
+    "./traefik.io/v1alpha1": {
+      "types": "./traefik.io/v1alpha1/index.d.ts",
+      "import": "./traefik.io/v1alpha1/index.mjs",
+      "require": "./traefik.io/v1alpha1/index.js"
+    },
+    "./traefik.io/v1alpha1/*": {
+      "types": "./traefik.io/v1alpha1/*.d.ts",
+      "import": "./traefik.io/v1alpha1/*.mjs",
+      "require": "./traefik.io/v1alpha1/*.js"
+    }
+  }
+}

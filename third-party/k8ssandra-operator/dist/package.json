@@ -1,0 +1,163 @@
+{
+  "name": "@kubernetes-models/k8ssandra-operator",
+  "version": "0.2.2",
+  "description": "Manage Apache Cassandra and DSE on Kubernetes.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/k8ssandra-operator",
+  "author": "Eddie Wen <eddiewen.tw@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "k8ssandra-operator"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "vitest": "^0.29.8"
+  },
+  "crd-generate": {
+    "input": [
+      "https://raw.githubusercontent.com/k8ssandra/k8ssandra-operator/release/1.13/charts/k8ssandra-operator/crds/k8ssandra-operator-crds.yaml"
+    ],
+    "output": "./gen"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./config.k8ssandra.io": {
+      "types": "./config.k8ssandra.io/index.d.ts",
+      "import": "./config.k8ssandra.io/index.mjs",
+      "require": "./config.k8ssandra.io/index.js"
+    },
+    "./config.k8ssandra.io/v1beta1": {
+      "types": "./config.k8ssandra.io/v1beta1/index.d.ts",
+      "import": "./config.k8ssandra.io/v1beta1/index.mjs",
+      "require": "./config.k8ssandra.io/v1beta1/index.js"
+    },
+    "./config.k8ssandra.io/v1beta1/*": {
+      "types": "./config.k8ssandra.io/v1beta1/*.d.ts",
+      "import": "./config.k8ssandra.io/v1beta1/*.mjs",
+      "require": "./config.k8ssandra.io/v1beta1/*.js"
+    },
+    "./control.k8ssandra.io": {
+      "types": "./control.k8ssandra.io/index.d.ts",
+      "import": "./control.k8ssandra.io/index.mjs",
+      "require": "./control.k8ssandra.io/index.js"
+    },
+    "./control.k8ssandra.io/v1alpha1": {
+      "types": "./control.k8ssandra.io/v1alpha1/index.d.ts",
+      "import": "./control.k8ssandra.io/v1alpha1/index.mjs",
+      "require": "./control.k8ssandra.io/v1alpha1/index.js"
+    },
+    "./control.k8ssandra.io/v1alpha1/*": {
+      "types": "./control.k8ssandra.io/v1alpha1/*.d.ts",
+      "import": "./control.k8ssandra.io/v1alpha1/*.mjs",
+      "require": "./control.k8ssandra.io/v1alpha1/*.js"
+    },
+    "./k8ssandra.io": {
+      "types": "./k8ssandra.io/index.d.ts",
+      "import": "./k8ssandra.io/index.mjs",
+      "require": "./k8ssandra.io/index.js"
+    },
+    "./k8ssandra.io/v1alpha1": {
+      "types": "./k8ssandra.io/v1alpha1/index.d.ts",
+      "import": "./k8ssandra.io/v1alpha1/index.mjs",
+      "require": "./k8ssandra.io/v1alpha1/index.js"
+    },
+    "./k8ssandra.io/v1alpha1/*": {
+      "types": "./k8ssandra.io/v1alpha1/*.d.ts",
+      "import": "./k8ssandra.io/v1alpha1/*.mjs",
+      "require": "./k8ssandra.io/v1alpha1/*.js"
+    },
+    "./medusa.k8ssandra.io": {
+      "types": "./medusa.k8ssandra.io/index.d.ts",
+      "import": "./medusa.k8ssandra.io/index.mjs",
+      "require": "./medusa.k8ssandra.io/index.js"
+    },
+    "./medusa.k8ssandra.io/v1alpha1": {
+      "types": "./medusa.k8ssandra.io/v1alpha1/index.d.ts",
+      "import": "./medusa.k8ssandra.io/v1alpha1/index.mjs",
+      "require": "./medusa.k8ssandra.io/v1alpha1/index.js"
+    },
+    "./medusa.k8ssandra.io/v1alpha1/*": {
+      "types": "./medusa.k8ssandra.io/v1alpha1/*.d.ts",
+      "import": "./medusa.k8ssandra.io/v1alpha1/*.mjs",
+      "require": "./medusa.k8ssandra.io/v1alpha1/*.js"
+    },
+    "./package.json": "./package.json",
+    "./reaper.k8ssandra.io": {
+      "types": "./reaper.k8ssandra.io/index.d.ts",
+      "import": "./reaper.k8ssandra.io/index.mjs",
+      "require": "./reaper.k8ssandra.io/index.js"
+    },
+    "./reaper.k8ssandra.io/v1alpha1": {
+      "types": "./reaper.k8ssandra.io/v1alpha1/index.d.ts",
+      "import": "./reaper.k8ssandra.io/v1alpha1/index.mjs",
+      "require": "./reaper.k8ssandra.io/v1alpha1/index.js"
+    },
+    "./reaper.k8ssandra.io/v1alpha1/*": {
+      "types": "./reaper.k8ssandra.io/v1alpha1/*.d.ts",
+      "import": "./reaper.k8ssandra.io/v1alpha1/*.mjs",
+      "require": "./reaper.k8ssandra.io/v1alpha1/*.js"
+    },
+    "./replication.k8ssandra.io": {
+      "types": "./replication.k8ssandra.io/index.d.ts",
+      "import": "./replication.k8ssandra.io/index.mjs",
+      "require": "./replication.k8ssandra.io/index.js"
+    },
+    "./replication.k8ssandra.io/v1alpha1": {
+      "types": "./replication.k8ssandra.io/v1alpha1/index.d.ts",
+      "import": "./replication.k8ssandra.io/v1alpha1/index.mjs",
+      "require": "./replication.k8ssandra.io/v1alpha1/index.js"
+    },
+    "./replication.k8ssandra.io/v1alpha1/*": {
+      "types": "./replication.k8ssandra.io/v1alpha1/*.d.ts",
+      "import": "./replication.k8ssandra.io/v1alpha1/*.mjs",
+      "require": "./replication.k8ssandra.io/v1alpha1/*.js"
+    },
+    "./stargate.k8ssandra.io": {
+      "types": "./stargate.k8ssandra.io/index.d.ts",
+      "import": "./stargate.k8ssandra.io/index.mjs",
+      "require": "./stargate.k8ssandra.io/index.js"
+    },
+    "./stargate.k8ssandra.io/v1alpha1": {
+      "types": "./stargate.k8ssandra.io/v1alpha1/index.d.ts",
+      "import": "./stargate.k8ssandra.io/v1alpha1/index.mjs",
+      "require": "./stargate.k8ssandra.io/v1alpha1/index.js"
+    },
+    "./stargate.k8ssandra.io/v1alpha1/*": {
+      "types": "./stargate.k8ssandra.io/v1alpha1/*.d.ts",
+      "import": "./stargate.k8ssandra.io/v1alpha1/*.mjs",
+      "require": "./stargate.k8ssandra.io/v1alpha1/*.js"
+    }
+  }
+}

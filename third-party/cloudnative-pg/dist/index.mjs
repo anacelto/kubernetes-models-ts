@@ -1,0 +1,1 @@
+export*as postgresqlCnpgIo from"./postgresql.cnpg.io/index.mjs";

@@ -1,0 +1,1 @@
+export*as kyvernoIo from"./kyverno.io/index.mjs";export*as policiesKyvernoIo from"./policies.kyverno.io/index.mjs";export*as reportsKyvernoIo from"./reports.kyverno.io/index.mjs";export*as wgpolicyk8sIo from"./wgpolicyk8s.io/index.mjs";

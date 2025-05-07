@@ -1,0 +1,102 @@
+{
+  "name": "@kubernetes-models/kapp-controller",
+  "version": "2.3.2",
+  "description": "Carvel kapp contoller models",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/kapp-controller",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "kapp-controller"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "vitest": "^0.29.8"
+  },
+  "crd-generate": {
+    "input": [
+      "https://github.com/vmware-tanzu/carvel-kapp-controller/releases/download/v0.44.1/release.yml"
+    ],
+    "output": "./gen"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./internal.packaging.carvel.dev": {
+      "types": "./internal.packaging.carvel.dev/index.d.ts",
+      "import": "./internal.packaging.carvel.dev/index.mjs",
+      "require": "./internal.packaging.carvel.dev/index.js"
+    },
+    "./internal.packaging.carvel.dev/v1alpha1": {
+      "types": "./internal.packaging.carvel.dev/v1alpha1/index.d.ts",
+      "import": "./internal.packaging.carvel.dev/v1alpha1/index.mjs",
+      "require": "./internal.packaging.carvel.dev/v1alpha1/index.js"
+    },
+    "./internal.packaging.carvel.dev/v1alpha1/*": {
+      "types": "./internal.packaging.carvel.dev/v1alpha1/*.d.ts",
+      "import": "./internal.packaging.carvel.dev/v1alpha1/*.mjs",
+      "require": "./internal.packaging.carvel.dev/v1alpha1/*.js"
+    },
+    "./kappctrl.k14s.io": {
+      "types": "./kappctrl.k14s.io/index.d.ts",
+      "import": "./kappctrl.k14s.io/index.mjs",
+      "require": "./kappctrl.k14s.io/index.js"
+    },
+    "./kappctrl.k14s.io/v1alpha1": {
+      "types": "./kappctrl.k14s.io/v1alpha1/index.d.ts",
+      "import": "./kappctrl.k14s.io/v1alpha1/index.mjs",
+      "require": "./kappctrl.k14s.io/v1alpha1/index.js"
+    },
+    "./kappctrl.k14s.io/v1alpha1/*": {
+      "types": "./kappctrl.k14s.io/v1alpha1/*.d.ts",
+      "import": "./kappctrl.k14s.io/v1alpha1/*.mjs",
+      "require": "./kappctrl.k14s.io/v1alpha1/*.js"
+    },
+    "./package.json": "./package.json",
+    "./packaging.carvel.dev": {
+      "types": "./packaging.carvel.dev/index.d.ts",
+      "import": "./packaging.carvel.dev/index.mjs",
+      "require": "./packaging.carvel.dev/index.js"
+    },
+    "./packaging.carvel.dev/v1alpha1": {
+      "types": "./packaging.carvel.dev/v1alpha1/index.d.ts",
+      "import": "./packaging.carvel.dev/v1alpha1/index.mjs",
+      "require": "./packaging.carvel.dev/v1alpha1/index.js"
+    },
+    "./packaging.carvel.dev/v1alpha1/*": {
+      "types": "./packaging.carvel.dev/v1alpha1/*.d.ts",
+      "import": "./packaging.carvel.dev/v1alpha1/*.mjs",
+      "require": "./packaging.carvel.dev/v1alpha1/*.js"
+    }
+  }
+}

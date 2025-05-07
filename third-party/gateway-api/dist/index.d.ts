@@ -1,0 +1,1 @@
+export * as gatewayNetworkingK8sIo from "./gateway.networking.k8s.io/index";

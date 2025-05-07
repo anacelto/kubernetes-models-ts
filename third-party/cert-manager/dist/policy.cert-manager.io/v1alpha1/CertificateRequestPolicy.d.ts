@@ -1,0 +1,337 @@
+import { IObjectMeta } from "@kubernetes-models/apimachinery/apis/meta/v1/ObjectMeta";
+import { Model, ModelData } from "@kubernetes-models/base";
+/**
+ * CertificateRequestPolicy is an object for describing a "policy profile" that makes decisions on whether applicable CertificateRequests should be approved or denied.
+ */
+export interface ICertificateRequestPolicy {
+    /**
+     * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+     */
+    "apiVersion": "policy.cert-manager.io/v1alpha1";
+    /**
+     * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+     */
+    "kind": "CertificateRequestPolicy";
+    "metadata"?: IObjectMeta;
+    /**
+     * CertificateRequestPolicySpec defines the desired state of CertificateRequestPolicy.
+     */
+    "spec"?: {
+        /**
+         * Allowed is the set of attributes that are "allowed" by this policy. A CertificateRequest will only be considered permissible for this policy if the CertificateRequest has the same or less as what is allowed.  Empty or `nil` allowed fields mean CertificateRequests are not allowed to have that field present to be permissible.
+         */
+        "allowed"?: {
+            /**
+             * CommonName defines the X.509 Common Name that is permissible.
+             */
+            "commonName"?: {
+                /**
+                 * Required marks this field as being a required value on the request. May only be set to true if Value is also defined.
+                 */
+                "required"?: boolean;
+                /**
+                 * Value defines the value that is permissible to be present on the request. Accepts wildcards "\*". An omitted field or value of `nil` forbids the value from being requested. An empty string is equivalent to `nil`, however an empty string pared with Required as `true` is an impossible condition that always denies. Value may not be `nil` if Required is `true`.
+                 */
+                "value"?: string;
+            };
+            /**
+             * DNSNames defines the X.509 DNS SANs that may be requested for. Accepts wildcards "\*".
+             */
+            "dnsNames"?: {
+                /**
+                 * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                 */
+                "required"?: boolean;
+                /**
+                 * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                 */
+                "values"?: Array<string>;
+            };
+            /**
+             * EmailAddresses defines the X.509 Email SANs that may be requested for.
+             */
+            "emailAddresses"?: {
+                /**
+                 * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                 */
+                "required"?: boolean;
+                /**
+                 * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                 */
+                "values"?: Array<string>;
+            };
+            /**
+             * IPAddresses defines the X.509 IP SANs that may be requested for.
+             */
+            "ipAddresses"?: {
+                /**
+                 * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                 */
+                "required"?: boolean;
+                /**
+                 * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                 */
+                "values"?: Array<string>;
+            };
+            /**
+             * IsCA defines whether it is permissible for a CertificateRequest to have the `spec.IsCA` field set to `true`. An omitted field, value of `nil` or `false`, forbids the `spec.IsCA` field from bring `true`. A value of `true` permits CertificateRequests setting the `spec.IsCA` field to `true`.
+             */
+            "isCA"?: boolean;
+            /**
+             * Subject defines the X.509 subject that is permissible. An omitted field or value of `nil` forbids any Subject being requested.
+             */
+            "subject"?: {
+                /**
+                 * Countries define the X.509 Subject Countries that may be requested for.
+                 */
+                "countries"?: {
+                    /**
+                     * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                     */
+                    "required"?: boolean;
+                    /**
+                     * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                     */
+                    "values"?: Array<string>;
+                };
+                /**
+                 * Localities defines the X.509 Subject Localities that may be requested for.
+                 */
+                "localities"?: {
+                    /**
+                     * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                     */
+                    "required"?: boolean;
+                    /**
+                     * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                     */
+                    "values"?: Array<string>;
+                };
+                /**
+                 * OrganizationalUnits defines the X.509 Subject Organizational Units that may be requested for.
+                 */
+                "organizationalUnits"?: {
+                    /**
+                     * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                     */
+                    "required"?: boolean;
+                    /**
+                     * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                     */
+                    "values"?: Array<string>;
+                };
+                /**
+                 * Organizations define the X.509 Subject Organizations that may be requested for.
+                 */
+                "organizations"?: {
+                    /**
+                     * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                     */
+                    "required"?: boolean;
+                    /**
+                     * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                     */
+                    "values"?: Array<string>;
+                };
+                /**
+                 * PostalCodes defines the X.509 Subject Postal Codes that may be requested for.
+                 */
+                "postalCodes"?: {
+                    /**
+                     * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                     */
+                    "required"?: boolean;
+                    /**
+                     * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                     */
+                    "values"?: Array<string>;
+                };
+                /**
+                 * Provinces defines the X.509 Subject Provinces that may be requested for.
+                 */
+                "provinces"?: {
+                    /**
+                     * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                     */
+                    "required"?: boolean;
+                    /**
+                     * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                     */
+                    "values"?: Array<string>;
+                };
+                /**
+                 * SerialNumber defines the X.509 Subject Serial Number that may be requested for.
+                 */
+                "serialNumber"?: {
+                    /**
+                     * Required marks this field as being a required value on the request. May only be set to true if Value is also defined.
+                     */
+                    "required"?: boolean;
+                    /**
+                     * Value defines the value that is permissible to be present on the request. Accepts wildcards "\*". An omitted field or value of `nil` forbids the value from being requested. An empty string is equivalent to `nil`, however an empty string pared with Required as `true` is an impossible condition that always denies. Value may not be `nil` if Required is `true`.
+                     */
+                    "value"?: string;
+                };
+                /**
+                 * StreetAddresses defines the X.509 Subject Street Addresses that may be requested for.
+                 */
+                "streetAddresses"?: {
+                    /**
+                     * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                     */
+                    "required"?: boolean;
+                    /**
+                     * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                     */
+                    "values"?: Array<string>;
+                };
+            };
+            /**
+             * URIs defines the X.509 URI SANs that may be requested for.
+             */
+            "uris"?: {
+                /**
+                 * Required marks this field as being a required value on the request. May only be set to true if Values is also defined. Default is nil which marks the field as not required.
+                 */
+                "required"?: boolean;
+                /**
+                 * Defines the values that are permissible to be present on request. Accepts wildcards "\*". An omitted field or value of `nil` forbids any value on the related field in the request from being requested. An empty slice `[]` is equivalent to `nil`, however an empty slice pared with Required `true` is an impossible condition that always denies. Values may not be `nil` if Required is `true`.
+                 */
+                "values"?: Array<string>;
+            };
+            /**
+             * Usages defines the list of permissible key usages that may appear on the CertificateRequest `spec.keyUsages` field. An omitted field or value of `nil` forbids any Usages being requested. An empty slice `[]` is equivalent to `nil`.
+             */
+            "usages"?: Array<"signing" | "digital signature" | "content commitment" | "key encipherment" | "key agreement" | "data encipherment" | "cert sign" | "crl sign" | "encipher only" | "decipher only" | "any" | "server auth" | "client auth" | "code signing" | "email protection" | "s/mime" | "ipsec end system" | "ipsec tunnel" | "ipsec user" | "timestamping" | "ocsp signing" | "microsoft sgc" | "netscape sgc">;
+        };
+        /**
+         * Constraints is the set of attributes that _must_ be satisfied by the CertificateRequest for the request to be permissible by the policy. Empty or `nil` constraint fields mean CertificateRequests satisfy that field with any value of their corresponding attribute.
+         */
+        "constraints"?: {
+            /**
+             * MaxDuration defines the maximum duration a certificate may be requested for. Values are inclusive (i.e. a max value of `1h` will accept a duration of `1h`). MaxDuration and MinDuration may be the same value. An omitted field or value of `nil` permits any maximum duration. If MaxDuration is defined, a duration _must_ be requested on the CertificateRequest.
+             */
+            "maxDuration"?: string;
+            /**
+             * MinDuration defines the minimum duration a certificate may be requested for. Values are inclusive (i.e. a min value of `1h` will accept a duration of `1h`). MinDuration and MaxDuration may be the same value. An omitted field or value of `nil` permits any minimum duration. If MinDuration is defined, a duration _must_ be requested on the CertificateRequest.
+             */
+            "minDuration"?: string;
+            /**
+             * PrivateKey defines the shape of permissible private keys that may be used for the request with this policy. An omitted field or value of `nil` permits the use of any private key by the requestor.
+             */
+            "privateKey"?: {
+                /**
+                 * Algorithm defines the allowed crypto algorithm that is used by the requestor for their private key in their request. An omitted field or value of `nil` permits any Algorithm.
+                 */
+                "algorithm"?: "RSA" | "ECDSA" | "Ed25519";
+                /**
+                 * MaxSize defines the maximum key size a requestor may use for their private key. Values are inclusive (i.e. a min value of `2048` will accept a size of `2048`). MaxSize and MinSize may be the same value. An omitted field or value of `nil` permits any maximum size.
+                 */
+                "maxSize"?: number;
+                /**
+                 * MinSize defines the minimum key size a requestor may use for their private key. Values are inclusive (i.e. a min value of `2048` will accept a size of `2048`). MinSize and MaxSize may be the same value. An omitted field or value of `nil` permits any minimum size.
+                 */
+                "minSize"?: number;
+            };
+        };
+        /**
+         * Plugins define a set of plugins and their configuration that should be executed when this policy is evaluated against a CertificateRequest. A plugin must already be built within approver-policy for it to be available.
+         */
+        "plugins"?: {
+            [key: string]: {
+                /**
+                 * Values define a set of well-known, to the plugin, key value pairs that are required for the plugin to successfully evaluate a request based on this policy.
+                 */
+                "values"?: {
+                    [key: string]: string;
+                };
+            };
+        };
+        /**
+         * Selector is used for selecting over which CertificateRequests this CertificateRequestPolicy is appropriate for and so will used for its approval evaluation.
+         */
+        "selector": {
+            /**
+             * IssuerRef is used to match this CertificateRequestPolicy against processed CertificateRequests. This policy will only be evaluated against a CertificateRequest whose `spec.issuerRef` field matches `spec.selector.issuerRef`. CertificateRequests will not be processed on unmatched `issuerRef` if defined, regardless of whether the requestor is bound by RBAC. Accepts wildcards "\*". Omitted values are equivalent to "\*".
+             *  The following value will match _all_ `issuerRefs`: ``` issuerRef: {} ```
+             */
+            "issuerRef"?: {
+                /**
+                 * Group is the wildcard selector to match the `spec.issuerRef.group` field on requests. Accepts wildcards "\*". An omitted field or value of `nil` matches all.
+                 */
+                "group"?: string;
+                /**
+                 * Kind is the wildcard selector to match the `spec.issuerRef.kind` field on requests. Accepts wildcards "\*". An omitted field or value of `nil` matches all.
+                 */
+                "kind"?: string;
+                /**
+                 * Name is the wildcard selector to match the `spec.issuerRef.name` field on requests. Accepts wildcards "\*". An omitted field or value of `nil` matches all.
+                 */
+                "name"?: string;
+            };
+            /**
+             * Namespace is used to select on Namespaces, meaning the CertificateRequestPolicy will only match on CertificateRequests that have been created in matching selected Namespaces. If this field is omitted, all Namespaces are selected.
+             */
+            "namespace"?: {
+                /**
+                 * MatchLabels is the set of Namespace labels that select on CertificateRequests which have been created in a Namespace matching the selector.
+                 */
+                "matchLabels"?: {
+                    [key: string]: string;
+                };
+                /**
+                 * MatchNames are the set of Namespace names that select on CertificateRequests that have been created in a matching Namespace. Accepts wildcards "\*".
+                 */
+                "matchNames"?: Array<string>;
+            };
+        };
+    };
+    /**
+     * CertificateRequestPolicyStatus defines the observed state of the CertificateRequestPolicy.
+     */
+    "status"?: {
+        /**
+         * List of status conditions to indicate the status of the CertificateRequestPolicy. Known condition types are `Ready`.
+         */
+        "conditions"?: Array<{
+            /**
+             * LastTransitionTime is the timestamp corresponding to the last status change of this condition.
+             */
+            "lastTransitionTime"?: string;
+            /**
+             * Message is a human readable description of the details of the last transition, complementing reason.
+             */
+            "message"?: string;
+            /**
+             * If set, this represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.condition[x].observedGeneration is 9, the condition is out of date with respect to the current state of the CertificateRequestPolicy.
+             */
+            "observedGeneration"?: number;
+            /**
+             * Reason is a brief machine readable explanation for the condition's last transition.
+             */
+            "reason"?: string;
+            /**
+             * Status of the condition, one of ('True', 'False', 'Unknown').
+             */
+            "status": string;
+            /**
+             * Type of the condition, known values are (`Ready`).
+             */
+            "type": string;
+        }>;
+    };
+}
+/**
+ * CertificateRequestPolicy is an object for describing a "policy profile" that makes decisions on whether applicable CertificateRequests should be approved or denied.
+ */
+export declare class CertificateRequestPolicy extends Model<ICertificateRequestPolicy> implements ICertificateRequestPolicy {
+    "apiVersion": ICertificateRequestPolicy["apiVersion"];
+    "kind": ICertificateRequestPolicy["kind"];
+    "metadata"?: ICertificateRequestPolicy["metadata"];
+    "spec"?: ICertificateRequestPolicy["spec"];
+    "status"?: ICertificateRequestPolicy["status"];
+    static apiVersion: ICertificateRequestPolicy["apiVersion"];
+    static kind: ICertificateRequestPolicy["kind"];
+    static is: import("@kubernetes-models/base").TypeMetaGuard<ICertificateRequestPolicy>;
+    constructor(data?: ModelData<ICertificateRequestPolicy>);
+}

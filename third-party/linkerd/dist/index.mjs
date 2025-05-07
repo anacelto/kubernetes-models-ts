@@ -1,0 +1,1 @@
+export*as policyLinkerdIo from"./policy.linkerd.io/index.mjs";export*as linkerdIo from"./linkerd.io/index.mjs";export*as workloadLinkerdIo from"./workload.linkerd.io/index.mjs";export*as multiclusterLinkerdIo from"./multicluster.linkerd.io/index.mjs";

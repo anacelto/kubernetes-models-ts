@@ -1,0 +1,81 @@
+{
+  "name": "@kubernetes-models/prometheus-operator",
+  "version": "4.4.2",
+  "description": "Kubernetes prometheus-operator models",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/prometheus-operator",
+  "author": "Julien Bouquillon <julien@bouquillon.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "prometheus",
+    "prometheus-operator"
+  ],
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "vitest": "^0.29.8"
+  },
+  "crd-generate": {
+    "input": [
+      "https://github.com/prometheus-operator/prometheus-operator/releases/download/v0.65.1/stripped-down-crds.yaml"
+    ],
+    "output": "./gen"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./monitoring.coreos.com": {
+      "types": "./monitoring.coreos.com/index.d.ts",
+      "import": "./monitoring.coreos.com/index.mjs",
+      "require": "./monitoring.coreos.com/index.js"
+    },
+    "./monitoring.coreos.com/v1": {
+      "types": "./monitoring.coreos.com/v1/index.d.ts",
+      "import": "./monitoring.coreos.com/v1/index.mjs",
+      "require": "./monitoring.coreos.com/v1/index.js"
+    },
+    "./monitoring.coreos.com/v1/*": {
+      "types": "./monitoring.coreos.com/v1/*.d.ts",
+      "import": "./monitoring.coreos.com/v1/*.mjs",
+      "require": "./monitoring.coreos.com/v1/*.js"
+    },
+    "./monitoring.coreos.com/v1alpha1": {
+      "types": "./monitoring.coreos.com/v1alpha1/index.d.ts",
+      "import": "./monitoring.coreos.com/v1alpha1/index.mjs",
+      "require": "./monitoring.coreos.com/v1alpha1/index.js"
+    },
+    "./monitoring.coreos.com/v1alpha1/*": {
+      "types": "./monitoring.coreos.com/v1alpha1/*.d.ts",
+      "import": "./monitoring.coreos.com/v1alpha1/*.mjs",
+      "require": "./monitoring.coreos.com/v1alpha1/*.js"
+    },
+    "./package.json": "./package.json"
+  }
+}

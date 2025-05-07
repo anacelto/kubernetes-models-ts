@@ -1,0 +1,83 @@
+{
+  "name": "@kubernetes-models/opentelemetry-operator",
+  "version": "1.0.0",
+  "description": "OpenTelemetry Operator models",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/opentelemetry-operator",
+  "author": "Oriol Mari <oriolmarimarques@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "opentelemetry-operator"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "vitest": "^0.29.8"
+  },
+  "crd-generate": {
+    "input": [
+      "https://github.com/open-telemetry/opentelemetry-operator/releases/download/v0.124.0/opentelemetry-operator.yaml"
+    ],
+    "output": "./gen"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./opentelemetry.io": {
+      "types": "./opentelemetry.io/index.d.ts",
+      "import": "./opentelemetry.io/index.mjs",
+      "require": "./opentelemetry.io/index.js"
+    },
+    "./opentelemetry.io/v1alpha1": {
+      "types": "./opentelemetry.io/v1alpha1/index.d.ts",
+      "import": "./opentelemetry.io/v1alpha1/index.mjs",
+      "require": "./opentelemetry.io/v1alpha1/index.js"
+    },
+    "./opentelemetry.io/v1alpha1/*": {
+      "types": "./opentelemetry.io/v1alpha1/*.d.ts",
+      "import": "./opentelemetry.io/v1alpha1/*.mjs",
+      "require": "./opentelemetry.io/v1alpha1/*.js"
+    },
+    "./opentelemetry.io/v1beta1": {
+      "types": "./opentelemetry.io/v1beta1/index.d.ts",
+      "import": "./opentelemetry.io/v1beta1/index.mjs",
+      "require": "./opentelemetry.io/v1beta1/index.js"
+    },
+    "./opentelemetry.io/v1beta1/*": {
+      "types": "./opentelemetry.io/v1beta1/*.d.ts",
+      "import": "./opentelemetry.io/v1beta1/*.mjs",
+      "require": "./opentelemetry.io/v1beta1/*.js"
+    },
+    "./package.json": "./package.json"
+  }
+}

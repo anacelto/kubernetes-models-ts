@@ -1,0 +1,9 @@
+export * as networkingInternalKnativeDev from "./networking.internal.knative.dev/index";
+export * as servingKnativeDev from "./serving.knative.dev/index";
+export * as autoscalingInternalKnativeDev from "./autoscaling.internal.knative.dev/index";
+export * as cachingInternalKnativeDev from "./caching.internal.knative.dev/index";
+export * as sourcesKnativeDev from "./sources.knative.dev/index";
+export * as eventingKnativeDev from "./eventing.knative.dev/index";
+export * as messagingKnativeDev from "./messaging.knative.dev/index";
+export * as flowsKnativeDev from "./flows.knative.dev/index";
+export * as operatorKnativeDev from "./operator.knative.dev/index";

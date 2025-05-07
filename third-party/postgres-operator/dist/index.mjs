@@ -1,0 +1,1 @@
+export*as postgresOperatorCrunchydataCom from"./postgres-operator.crunchydata.com/index.mjs";export*as acidZalanDo from"./acid.zalan.do/index.mjs";

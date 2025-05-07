@@ -1,0 +1,1 @@
+export*as bitnamiCom from"./bitnami.com/index.mjs";

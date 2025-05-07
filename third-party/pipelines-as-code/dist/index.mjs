@@ -1,0 +1,1 @@
+export*as pipelinesascodeTektonDev from"./pipelinesascode.tekton.dev/index.mjs";

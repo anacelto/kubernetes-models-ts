@@ -1,0 +1,236 @@
+{
+  "name": "@kubernetes-models/knative",
+  "version": "2.4.2",
+  "description": "Knative models",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/knative",
+  "author": "Tommy Chen <tommy351@gmail.com>",
+  "license": "MIT",
+  "main": "index.cjs",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "knative"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "vitest": "^0.29.8"
+  },
+  "crd-generate": {
+    "input": [
+      "https://github.com/knative/serving/releases/download/knative-v1.10.1/serving-crds.yaml",
+      "https://github.com/knative/eventing/releases/download/knative-v1.10.0/eventing-crds.yaml",
+      "https://github.com/knative/operator/releases/download/knative-v1.10.0/operator.yaml"
+    ],
+    "output": "./gen",
+    "yamlVersion": "1.1"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./autoscaling.internal.knative.dev": {
+      "types": "./autoscaling.internal.knative.dev/index.d.ts",
+      "import": "./autoscaling.internal.knative.dev/index.mjs",
+      "require": "./autoscaling.internal.knative.dev/index.js"
+    },
+    "./autoscaling.internal.knative.dev/v1alpha1": {
+      "types": "./autoscaling.internal.knative.dev/v1alpha1/index.d.ts",
+      "import": "./autoscaling.internal.knative.dev/v1alpha1/index.mjs",
+      "require": "./autoscaling.internal.knative.dev/v1alpha1/index.js"
+    },
+    "./autoscaling.internal.knative.dev/v1alpha1/*": {
+      "types": "./autoscaling.internal.knative.dev/v1alpha1/*.d.ts",
+      "import": "./autoscaling.internal.knative.dev/v1alpha1/*.mjs",
+      "require": "./autoscaling.internal.knative.dev/v1alpha1/*.js"
+    },
+    "./caching.internal.knative.dev": {
+      "types": "./caching.internal.knative.dev/index.d.ts",
+      "import": "./caching.internal.knative.dev/index.mjs",
+      "require": "./caching.internal.knative.dev/index.js"
+    },
+    "./caching.internal.knative.dev/v1alpha1": {
+      "types": "./caching.internal.knative.dev/v1alpha1/index.d.ts",
+      "import": "./caching.internal.knative.dev/v1alpha1/index.mjs",
+      "require": "./caching.internal.knative.dev/v1alpha1/index.js"
+    },
+    "./caching.internal.knative.dev/v1alpha1/*": {
+      "types": "./caching.internal.knative.dev/v1alpha1/*.d.ts",
+      "import": "./caching.internal.knative.dev/v1alpha1/*.mjs",
+      "require": "./caching.internal.knative.dev/v1alpha1/*.js"
+    },
+    "./eventing.knative.dev": {
+      "types": "./eventing.knative.dev/index.d.ts",
+      "import": "./eventing.knative.dev/index.mjs",
+      "require": "./eventing.knative.dev/index.js"
+    },
+    "./eventing.knative.dev/v1": {
+      "types": "./eventing.knative.dev/v1/index.d.ts",
+      "import": "./eventing.knative.dev/v1/index.mjs",
+      "require": "./eventing.knative.dev/v1/index.js"
+    },
+    "./eventing.knative.dev/v1/*": {
+      "types": "./eventing.knative.dev/v1/*.d.ts",
+      "import": "./eventing.knative.dev/v1/*.mjs",
+      "require": "./eventing.knative.dev/v1/*.js"
+    },
+    "./eventing.knative.dev/v1beta1": {
+      "types": "./eventing.knative.dev/v1beta1/index.d.ts",
+      "import": "./eventing.knative.dev/v1beta1/index.mjs",
+      "require": "./eventing.knative.dev/v1beta1/index.js"
+    },
+    "./eventing.knative.dev/v1beta1/*": {
+      "types": "./eventing.knative.dev/v1beta1/*.d.ts",
+      "import": "./eventing.knative.dev/v1beta1/*.mjs",
+      "require": "./eventing.knative.dev/v1beta1/*.js"
+    },
+    "./flows.knative.dev": {
+      "types": "./flows.knative.dev/index.d.ts",
+      "import": "./flows.knative.dev/index.mjs",
+      "require": "./flows.knative.dev/index.js"
+    },
+    "./flows.knative.dev/v1": {
+      "types": "./flows.knative.dev/v1/index.d.ts",
+      "import": "./flows.knative.dev/v1/index.mjs",
+      "require": "./flows.knative.dev/v1/index.js"
+    },
+    "./flows.knative.dev/v1/*": {
+      "types": "./flows.knative.dev/v1/*.d.ts",
+      "import": "./flows.knative.dev/v1/*.mjs",
+      "require": "./flows.knative.dev/v1/*.js"
+    },
+    "./messaging.knative.dev": {
+      "types": "./messaging.knative.dev/index.d.ts",
+      "import": "./messaging.knative.dev/index.mjs",
+      "require": "./messaging.knative.dev/index.js"
+    },
+    "./messaging.knative.dev/v1": {
+      "types": "./messaging.knative.dev/v1/index.d.ts",
+      "import": "./messaging.knative.dev/v1/index.mjs",
+      "require": "./messaging.knative.dev/v1/index.js"
+    },
+    "./messaging.knative.dev/v1/*": {
+      "types": "./messaging.knative.dev/v1/*.d.ts",
+      "import": "./messaging.knative.dev/v1/*.mjs",
+      "require": "./messaging.knative.dev/v1/*.js"
+    },
+    "./networking.internal.knative.dev": {
+      "types": "./networking.internal.knative.dev/index.d.ts",
+      "import": "./networking.internal.knative.dev/index.mjs",
+      "require": "./networking.internal.knative.dev/index.js"
+    },
+    "./networking.internal.knative.dev/v1alpha1": {
+      "types": "./networking.internal.knative.dev/v1alpha1/index.d.ts",
+      "import": "./networking.internal.knative.dev/v1alpha1/index.mjs",
+      "require": "./networking.internal.knative.dev/v1alpha1/index.js"
+    },
+    "./networking.internal.knative.dev/v1alpha1/*": {
+      "types": "./networking.internal.knative.dev/v1alpha1/*.d.ts",
+      "import": "./networking.internal.knative.dev/v1alpha1/*.mjs",
+      "require": "./networking.internal.knative.dev/v1alpha1/*.js"
+    },
+    "./operator.knative.dev": {
+      "types": "./operator.knative.dev/index.d.ts",
+      "import": "./operator.knative.dev/index.mjs",
+      "require": "./operator.knative.dev/index.js"
+    },
+    "./operator.knative.dev/v1beta1": {
+      "types": "./operator.knative.dev/v1beta1/index.d.ts",
+      "import": "./operator.knative.dev/v1beta1/index.mjs",
+      "require": "./operator.knative.dev/v1beta1/index.js"
+    },
+    "./operator.knative.dev/v1beta1/*": {
+      "types": "./operator.knative.dev/v1beta1/*.d.ts",
+      "import": "./operator.knative.dev/v1beta1/*.mjs",
+      "require": "./operator.knative.dev/v1beta1/*.js"
+    },
+    "./package.json": "./package.json",
+    "./serving.knative.dev": {
+      "types": "./serving.knative.dev/index.d.ts",
+      "import": "./serving.knative.dev/index.mjs",
+      "require": "./serving.knative.dev/index.js"
+    },
+    "./serving.knative.dev/v1": {
+      "types": "./serving.knative.dev/v1/index.d.ts",
+      "import": "./serving.knative.dev/v1/index.mjs",
+      "require": "./serving.knative.dev/v1/index.js"
+    },
+    "./serving.knative.dev/v1/*": {
+      "types": "./serving.knative.dev/v1/*.d.ts",
+      "import": "./serving.knative.dev/v1/*.mjs",
+      "require": "./serving.knative.dev/v1/*.js"
+    },
+    "./serving.knative.dev/v1alpha1": {
+      "types": "./serving.knative.dev/v1alpha1/index.d.ts",
+      "import": "./serving.knative.dev/v1alpha1/index.mjs",
+      "require": "./serving.knative.dev/v1alpha1/index.js"
+    },
+    "./serving.knative.dev/v1alpha1/*": {
+      "types": "./serving.knative.dev/v1alpha1/*.d.ts",
+      "import": "./serving.knative.dev/v1alpha1/*.mjs",
+      "require": "./serving.knative.dev/v1alpha1/*.js"
+    },
+    "./serving.knative.dev/v1beta1": {
+      "types": "./serving.knative.dev/v1beta1/index.d.ts",
+      "import": "./serving.knative.dev/v1beta1/index.mjs",
+      "require": "./serving.knative.dev/v1beta1/index.js"
+    },
+    "./serving.knative.dev/v1beta1/*": {
+      "types": "./serving.knative.dev/v1beta1/*.d.ts",
+      "import": "./serving.knative.dev/v1beta1/*.mjs",
+      "require": "./serving.knative.dev/v1beta1/*.js"
+    },
+    "./sources.knative.dev": {
+      "types": "./sources.knative.dev/index.d.ts",
+      "import": "./sources.knative.dev/index.mjs",
+      "require": "./sources.knative.dev/index.js"
+    },
+    "./sources.knative.dev/v1": {
+      "types": "./sources.knative.dev/v1/index.d.ts",
+      "import": "./sources.knative.dev/v1/index.mjs",
+      "require": "./sources.knative.dev/v1/index.js"
+    },
+    "./sources.knative.dev/v1/*": {
+      "types": "./sources.knative.dev/v1/*.d.ts",
+      "import": "./sources.knative.dev/v1/*.mjs",
+      "require": "./sources.knative.dev/v1/*.js"
+    },
+    "./sources.knative.dev/v1beta2": {
+      "types": "./sources.knative.dev/v1beta2/index.d.ts",
+      "import": "./sources.knative.dev/v1beta2/index.mjs",
+      "require": "./sources.knative.dev/v1beta2/index.js"
+    },
+    "./sources.knative.dev/v1beta2/*": {
+      "types": "./sources.knative.dev/v1beta2/*.d.ts",
+      "import": "./sources.knative.dev/v1beta2/*.mjs",
+      "require": "./sources.knative.dev/v1beta2/*.js"
+    }
+  }
+}

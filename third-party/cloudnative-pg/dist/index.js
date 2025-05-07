@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),Object.defineProperty(exports,"postgresqlCnpgIo",{enumerable:!0,get:function(){return _index}});let _index=require("@swc/helpers/_/_interop_require_wildcard")._(require("./postgresql.cnpg.io/index.js"));

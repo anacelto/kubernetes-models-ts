@@ -1,0 +1,198 @@
+{
+  "name": "@kubernetes-models/smi",
+  "version": "0.2.2",
+  "description": "Service Mesh Interface (SMI) models",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tommy351/kubernetes-models-ts.git"
+  },
+  "homepage": "https://github.com/tommy351/kubernetes-models-ts/tree/master/third-party/smi",
+  "author": "Tommy Chen <tommy351@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "crd-generate && publish-scripts build",
+    "prepack": "publish-scripts prepack"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist",
+    "linkDirectory": true
+  },
+  "keywords": [
+    "kubernetes",
+    "kubernetes-models",
+    "smi"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "dependencies": {
+    "@kubernetes-models/apimachinery": "workspace:^",
+    "@kubernetes-models/base": "workspace:^",
+    "@kubernetes-models/validate": "workspace:^",
+    "@swc/helpers": "^0.5.8"
+  },
+  "devDependencies": {
+    "@kubernetes-models/crd-generate": "workspace:^",
+    "@kubernetes-models/publish-scripts": "workspace:^",
+    "vitest": "^0.29.8"
+  },
+  "crd-generate": {
+    "input": [
+      "https://raw.githubusercontent.com/servicemeshinterface/smi-controller-sdk/4cbed06a67893f8220096ba09c1b4d52c0a2468d/config/crd/bases/access.smi-spec.io_identitybindings.yaml",
+      "https://raw.githubusercontent.com/servicemeshinterface/smi-controller-sdk/4cbed06a67893f8220096ba09c1b4d52c0a2468d/config/crd/bases/access.smi-spec.io_traffictargets.yaml",
+      "https://raw.githubusercontent.com/servicemeshinterface/smi-controller-sdk/4cbed06a67893f8220096ba09c1b4d52c0a2468d/config/crd/bases/specs.smi-spec.io_httproutegroups.yaml",
+      "https://raw.githubusercontent.com/servicemeshinterface/smi-controller-sdk/4cbed06a67893f8220096ba09c1b4d52c0a2468d/config/crd/bases/specs.smi-spec.io_tcproutes.yaml",
+      "https://raw.githubusercontent.com/servicemeshinterface/smi-controller-sdk/4cbed06a67893f8220096ba09c1b4d52c0a2468d/config/crd/bases/specs.smi-spec.io_udproutes.yaml",
+      "https://raw.githubusercontent.com/servicemeshinterface/smi-controller-sdk/4cbed06a67893f8220096ba09c1b4d52c0a2468d/config/crd/bases/split.smi-spec.io_trafficsplits.yaml"
+    ],
+    "output": "./gen"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./access.smi-spec.io": {
+      "types": "./access.smi-spec.io/index.d.ts",
+      "import": "./access.smi-spec.io/index.mjs",
+      "require": "./access.smi-spec.io/index.js"
+    },
+    "./access.smi-spec.io/v1alpha1": {
+      "types": "./access.smi-spec.io/v1alpha1/index.d.ts",
+      "import": "./access.smi-spec.io/v1alpha1/index.mjs",
+      "require": "./access.smi-spec.io/v1alpha1/index.js"
+    },
+    "./access.smi-spec.io/v1alpha1/*": {
+      "types": "./access.smi-spec.io/v1alpha1/*.d.ts",
+      "import": "./access.smi-spec.io/v1alpha1/*.mjs",
+      "require": "./access.smi-spec.io/v1alpha1/*.js"
+    },
+    "./access.smi-spec.io/v1alpha2": {
+      "types": "./access.smi-spec.io/v1alpha2/index.d.ts",
+      "import": "./access.smi-spec.io/v1alpha2/index.mjs",
+      "require": "./access.smi-spec.io/v1alpha2/index.js"
+    },
+    "./access.smi-spec.io/v1alpha2/*": {
+      "types": "./access.smi-spec.io/v1alpha2/*.d.ts",
+      "import": "./access.smi-spec.io/v1alpha2/*.mjs",
+      "require": "./access.smi-spec.io/v1alpha2/*.js"
+    },
+    "./access.smi-spec.io/v1alpha3": {
+      "types": "./access.smi-spec.io/v1alpha3/index.d.ts",
+      "import": "./access.smi-spec.io/v1alpha3/index.mjs",
+      "require": "./access.smi-spec.io/v1alpha3/index.js"
+    },
+    "./access.smi-spec.io/v1alpha3/*": {
+      "types": "./access.smi-spec.io/v1alpha3/*.d.ts",
+      "import": "./access.smi-spec.io/v1alpha3/*.mjs",
+      "require": "./access.smi-spec.io/v1alpha3/*.js"
+    },
+    "./access.smi-spec.io/v1alpha4": {
+      "types": "./access.smi-spec.io/v1alpha4/index.d.ts",
+      "import": "./access.smi-spec.io/v1alpha4/index.mjs",
+      "require": "./access.smi-spec.io/v1alpha4/index.js"
+    },
+    "./access.smi-spec.io/v1alpha4/*": {
+      "types": "./access.smi-spec.io/v1alpha4/*.d.ts",
+      "import": "./access.smi-spec.io/v1alpha4/*.mjs",
+      "require": "./access.smi-spec.io/v1alpha4/*.js"
+    },
+    "./package.json": "./package.json",
+    "./specs.smi-spec.io": {
+      "types": "./specs.smi-spec.io/index.d.ts",
+      "import": "./specs.smi-spec.io/index.mjs",
+      "require": "./specs.smi-spec.io/index.js"
+    },
+    "./specs.smi-spec.io/v1alpha1": {
+      "types": "./specs.smi-spec.io/v1alpha1/index.d.ts",
+      "import": "./specs.smi-spec.io/v1alpha1/index.mjs",
+      "require": "./specs.smi-spec.io/v1alpha1/index.js"
+    },
+    "./specs.smi-spec.io/v1alpha1/*": {
+      "types": "./specs.smi-spec.io/v1alpha1/*.d.ts",
+      "import": "./specs.smi-spec.io/v1alpha1/*.mjs",
+      "require": "./specs.smi-spec.io/v1alpha1/*.js"
+    },
+    "./specs.smi-spec.io/v1alpha2": {
+      "types": "./specs.smi-spec.io/v1alpha2/index.d.ts",
+      "import": "./specs.smi-spec.io/v1alpha2/index.mjs",
+      "require": "./specs.smi-spec.io/v1alpha2/index.js"
+    },
+    "./specs.smi-spec.io/v1alpha2/*": {
+      "types": "./specs.smi-spec.io/v1alpha2/*.d.ts",
+      "import": "./specs.smi-spec.io/v1alpha2/*.mjs",
+      "require": "./specs.smi-spec.io/v1alpha2/*.js"
+    },
+    "./specs.smi-spec.io/v1alpha3": {
+      "types": "./specs.smi-spec.io/v1alpha3/index.d.ts",
+      "import": "./specs.smi-spec.io/v1alpha3/index.mjs",
+      "require": "./specs.smi-spec.io/v1alpha3/index.js"
+    },
+    "./specs.smi-spec.io/v1alpha3/*": {
+      "types": "./specs.smi-spec.io/v1alpha3/*.d.ts",
+      "import": "./specs.smi-spec.io/v1alpha3/*.mjs",
+      "require": "./specs.smi-spec.io/v1alpha3/*.js"
+    },
+    "./specs.smi-spec.io/v1alpha4": {
+      "types": "./specs.smi-spec.io/v1alpha4/index.d.ts",
+      "import": "./specs.smi-spec.io/v1alpha4/index.mjs",
+      "require": "./specs.smi-spec.io/v1alpha4/index.js"
+    },
+    "./specs.smi-spec.io/v1alpha4/*": {
+      "types": "./specs.smi-spec.io/v1alpha4/*.d.ts",
+      "import": "./specs.smi-spec.io/v1alpha4/*.mjs",
+      "require": "./specs.smi-spec.io/v1alpha4/*.js"
+    },
+    "./split.smi-spec.io": {
+      "types": "./split.smi-spec.io/index.d.ts",
+      "import": "./split.smi-spec.io/index.mjs",
+      "require": "./split.smi-spec.io/index.js"
+    },
+    "./split.smi-spec.io/v1alpha1": {
+      "types": "./split.smi-spec.io/v1alpha1/index.d.ts",
+      "import": "./split.smi-spec.io/v1alpha1/index.mjs",
+      "require": "./split.smi-spec.io/v1alpha1/index.js"
+    },
+    "./split.smi-spec.io/v1alpha1/*": {
+      "types": "./split.smi-spec.io/v1alpha1/*.d.ts",
+      "import": "./split.smi-spec.io/v1alpha1/*.mjs",
+      "require": "./split.smi-spec.io/v1alpha1/*.js"
+    },
+    "./split.smi-spec.io/v1alpha2": {
+      "types": "./split.smi-spec.io/v1alpha2/index.d.ts",
+      "import": "./split.smi-spec.io/v1alpha2/index.mjs",
+      "require": "./split.smi-spec.io/v1alpha2/index.js"
+    },
+    "./split.smi-spec.io/v1alpha2/*": {
+      "types": "./split.smi-spec.io/v1alpha2/*.d.ts",
+      "import": "./split.smi-spec.io/v1alpha2/*.mjs",
+      "require": "./split.smi-spec.io/v1alpha2/*.js"
+    },
+    "./split.smi-spec.io/v1alpha3": {
+      "types": "./split.smi-spec.io/v1alpha3/index.d.ts",
+      "import": "./split.smi-spec.io/v1alpha3/index.mjs",
+      "require": "./split.smi-spec.io/v1alpha3/index.js"
+    },
+    "./split.smi-spec.io/v1alpha3/*": {
+      "types": "./split.smi-spec.io/v1alpha3/*.d.ts",
+      "import": "./split.smi-spec.io/v1alpha3/*.mjs",
+      "require": "./split.smi-spec.io/v1alpha3/*.js"
+    },
+    "./split.smi-spec.io/v1alpha4": {
+      "types": "./split.smi-spec.io/v1alpha4/index.d.ts",
+      "import": "./split.smi-spec.io/v1alpha4/index.mjs",
+      "require": "./split.smi-spec.io/v1alpha4/index.js"
+    },
+    "./split.smi-spec.io/v1alpha4/*": {
+      "types": "./split.smi-spec.io/v1alpha4/*.d.ts",
+      "import": "./split.smi-spec.io/v1alpha4/*.mjs",
+      "require": "./split.smi-spec.io/v1alpha4/*.js"
+    }
+  }
+}

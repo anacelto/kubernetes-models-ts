@@ -1,0 +1,10 @@
+export * as agentK8sElasticCo from "./agent.k8s.elastic.co/index";
+export * as apmK8sElasticCo from "./apm.k8s.elastic.co/index";
+export * as beatK8sElasticCo from "./beat.k8s.elastic.co/index";
+export * as mapsK8sElasticCo from "./maps.k8s.elastic.co/index";
+export * as autoscalingK8sElasticCo from "./autoscaling.k8s.elastic.co/index";
+export * as elasticsearchK8sElasticCo from "./elasticsearch.k8s.elastic.co/index";
+export * as enterprisesearchK8sElasticCo from "./enterprisesearch.k8s.elastic.co/index";
+export * as kibanaK8sElasticCo from "./kibana.k8s.elastic.co/index";
+export * as logstashK8sElasticCo from "./logstash.k8s.elastic.co/index";
+export * as stackconfigpolicyK8sElasticCo from "./stackconfigpolicy.k8s.elastic.co/index";

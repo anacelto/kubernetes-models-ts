@@ -1,0 +1,1 @@
+export*as configGatewayEnvoyproxyIo from"./config.gateway.envoyproxy.io/index.mjs";export*as gatewayEnvoyproxyIo from"./gateway.envoyproxy.io/index.mjs";

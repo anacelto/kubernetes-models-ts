@@ -1,0 +1,1 @@
+export * as flaggerApp from "./flagger.app/index";
